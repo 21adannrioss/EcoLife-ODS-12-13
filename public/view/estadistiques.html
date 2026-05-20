@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadístiques - EcoLife</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/estadistiques.js" defer></script>
+</head>
+<body>
+    <main>
+        <header class="header">
+            <nav>
+                <a href="../index.html" class="logo">EcoLife</a>
+                <ul>
+                    <li><a href="../index.html">Inici</a></li>
+                    <li><a href="ods.html">ODS</a></li>
+                    <li><a href="reptes.html">Reptes</a></li>
+                    <li><a href="habits.html">Hàbits</a></li>
+                    <li><a href="mercat.html">Mercat</a></li>
+                    <li><a href="calculadora.html">Calculadora</a></li>
+                    <li><a href="sostenibilitat.html">Sostenibilitat</a></li>
+                    <li><a href="empresa.html">Empresa</a></li>
+                    <li><a href="estadistiques.html" class="actiu">Estadístiques</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                </ul>
+            </nav>
+
+            <span class="etiqueta-ra">RA7 · Comunicació asíncrona · GET</span>
+            <h1>Estadístiques</h1>
+            <p>Dades carregades via fetch() des de la nostra API REST.</p>
+        </header>
+
+        <div class="contingut-principal">
+            
+            <!-- Zona d'avís si l'API no respon -->
+            <output id="zona-avis-stats"></output>
+
+            <!-- Xifres generals -->
+            <section class="seccio">
+                <h2>Resum general</h2>
+                <div class="graella-3" id="xifres-generals">
+                    <article class="targeta">
+                        <p>Carregant...</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Gràfic per categories -->
+            <section class="seccio">
+                <h2>Hàbits per categoria</h2>
+                <div id="grafica-categories">
+                    <p>Carregant...</p>
+                </div>
+            </section>
+
+            <!-- Taula completa -->
+            <section class="seccio">
+                <h2>Tots els hàbits</h2>
+                <div id="taula-habits">
+                    <p>Carregant...</p>
+                </div>
+            </section>
+        </div>
+
+        <footer>© 2026 EcoLife · DAW</footer>
+    </main>
+</body>
+</html>
