@@ -1,0 +1,19 @@
+{
+    "name": "ecosimple",
+    "version": "1.0.0",
+    "description": "EcoSimple - Web sostenible amb Node.js i Express",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "author": "DAW - Fase 7",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.2"
+    }
+}
