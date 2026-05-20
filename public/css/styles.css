@@ -1,0 +1,673 @@
+/* Variables de colors */
+:root {
+    --color-verd: #2e7d32;
+    --color-verd-clar: #e8f5e9;
+    --color-fons: #f9f9f9;
+    --color-text: #222;
+    --color-text-suau: #555;
+    --color-vora: #ddd;
+    --color-navbar: #1b5e20;
+    --color-error: #c62828;
+    --color-ok: #2e7d32;
+}
+
+/* Reset bàsic */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fons);
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* NAVEGADOR */
+nav {
+    background-color: var(--color-navbar);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+nav ul li a:hover,
+nav ul li a.actiu {
+    background-color: var(--color-verd);
+}
+
+/* CAPÇALERA DE PÀGINA */
+.header {
+    background-color: var(--color-verd);
+    color: white;
+    text-align: center;
+    padding: 0;
+}
+
+/* Espai interior de la capçalera, excloent el nav */
+.header> :not(nav) {
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header> :not(nav):first-of-type {
+    padding-top: 40px;
+}
+
+.header> :not(nav):last-child {
+    padding-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.etiqueta-ra {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+/* CONTINGUT PRINCIPAL */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.seccio {
+    margin-bottom: 30px;
+}
+
+.seccio h2 {
+    color: var(--color-verd);
+    font-size: 18px;
+    border-bottom: 2px solid var(--color-verd-clar);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+/* TARGETES */
+.targeta {
+    background: white;
+    border: 1px solid var(--color-vora);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.graella-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.graella-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+/* BOTONS */
+.boto {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.boto-verd {
+    background-color: var(--color-verd);
+    color: white;
+}
+
+.boto-verd:hover {
+    background-color: #1b5e20;
+}
+
+.boto-perill {
+    background-color: #c62828;
+    color: white;
+}
+
+.boto-perill:hover {
+    background-color: #b71c1c;
+}
+
+.boto-editar {
+    background-color: #ef6c00;
+    color: white;
+}
+
+.boto-editar:hover {
+    background-color: #e65100;
+}
+
+.boto-gris {
+    background-color: #ccc;
+    color: #333;
+}
+
+/* FORMULARIS */
+.grup-camp {
+    margin-bottom: 14px;
+}
+
+.grup-camp label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: var(--color-text);
+}
+
+.grup-camp input,
+.grup-camp select,
+.grup-camp textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--color-vora);
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.grup-camp input:focus,
+.grup-camp select:focus {
+    outline: none;
+    border-color: var(--color-verd);
+}
+
+.camp-error {
+    border-color: var(--color-error) !important;
+}
+
+.missatge-error {
+    display: none;
+    color: var(--color-error);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.missatge-error.visible {
+    display: block;
+}
+
+/* TAULES */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+table th {
+    background-color: var(--color-verd);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-vora);
+}
+
+table tr:hover {
+    background-color: var(--color-verd-clar);
+}
+
+/* AVISOS I MISSATGES */
+.avis {
+    padding: 10px 14px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.avis-ok {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #a5d6a7;
+}
+
+.avis-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+.avis-info {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    border: 1px solid #90caf9;
+}
+
+/* ESTADISTIQUES - XIFRES GRANS */
+.xifra-gran {
+    text-align: center;
+    padding: 20px;
+}
+
+.xifra-gran span {
+    display: block;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--color-verd);
+}
+
+.xifra-gran p {
+    font-size: 14px;
+    color: var(--color-text-suau);
+    margin-top: 4px;
+}
+
+/* BARRA DE PROGRÉS */
+.barra-fons {
+    background-color: var(--color-verd-clar);
+    border-radius: 4px;
+    height: 12px;
+    margin-top: 4px;
+}
+
+.barra-farciment {
+    background-color: var(--color-verd);
+    height: 12px;
+    border-radius: 4px;
+}
+
+/* BLOC D'INFORMACIÓ */
+.bloc-info {
+    background-color: var(--color-verd-clar);
+    border-left: 4px solid var(--color-verd);
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border-radius: 0 5px 5px 0;
+    font-size: 14px;
+    color: var(--color-text);
+}
+
+/* MODAL (finestra emergent per editar) */
+/* dialog és l'element HTML5 natiu per a modals */
+dialog.fons-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+dialog.fons-modal.obert {
+    display: flex;
+}
+
+.modal {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal h3 {
+    margin-bottom: 16px;
+    color: var(--color-verd);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--color-text-suau);
+    border-top: 1px solid var(--color-vora);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+
+    .graella-2,
+    .graella-3 {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+/* =============================================
+   CORRECCIONS: nav i footer dins de main
+   ============================================= */
+
+/* El main ara és full-width per contenir nav i footer */
+main {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contingut interior de main (seccions i capçalera) */
+.contingut-principal {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Footer dins de main */
+main footer {
+    margin-top: 0;
+}
+
+/* =============================================
+   CLASSES PER SUBSTITUIR ESTILS INLINE
+   ============================================= */
+
+/* Text secundari genèric */
+.text-secundari {
+    color: var(--color-text-suau);
+    font-size: 14px;
+}
+
+/* Text secundari amb interlineat */
+.text-secundari-espaiat {
+    color: var(--color-text-suau);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* Paràgraf descriptiu (ods, sobre, sostenibilitat) */
+.paragraf-descripcio {
+    color: var(--color-text-suau);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* Títol de secció verd dins de targeta */
+.titol-targeta {
+    color: var(--color-verd);
+    margin-bottom: 10px;
+}
+
+/* Títol amb marge inferior gran */
+.titol-targeta-mb {
+    color: var(--color-verd);
+    margin-bottom: 16px;
+}
+
+/* Subtítol taronja */
+.titol-taronja {
+    color: #e65100;
+    margin-bottom: 10px;
+}
+
+/* Xifra destacada en taronja */
+.xifra-taronja {
+    color: #e65100;
+}
+
+/* Llista estilitzada sense punts */
+.llista-neta {
+    list-style: none;
+    font-size: 14px;
+    color: var(--color-text-suau);
+    line-height: 2;
+}
+
+/* Llista amb padding (amb punts) */
+.llista-punts {
+    padding-left: 20px;
+    font-size: 14px;
+    color: var(--color-text-suau);
+    line-height: 2;
+}
+
+/* Emoji gran (icona de secció) */
+.icona-gran {
+    font-size: 30px;
+}
+
+/* Emoji molt gran */
+.icona-xl {
+    font-size: 40px;
+}
+
+/* Emoji d'empresa (amb marge auto) */
+.icona-empresa {
+    font-size: 40px;
+}
+
+/* Capçalera d'article empresa (flex) */
+.capçalera-empresa {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Subtítol d'empresa */
+.subtitol-empresa {
+    font-size: 14px;
+    color: var(--color-text-suau);
+}
+
+/* Label de categoria dins form calculadora */
+.label-categoria {
+    font-weight: bold;
+    color: var(--color-verd);
+    margin-bottom: 10px;
+}
+
+/* Label de categoria amb marge superior */
+.label-categoria-mt {
+    font-weight: bold;
+    color: var(--color-verd);
+    margin: 16px 0 10px;
+}
+
+/* Botó d'amplada completa */
+.boto-complet {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Output de resultat (calculadora) */
+.zona-resultat-buit {
+    text-align: center;
+    padding: 30px;
+}
+
+/* Emoji resultat calculadora */
+.emoji-resultat {
+    font-size: 40px;
+}
+
+/* Fila de botons (modal) */
+.fila-botons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Targeta de codi (sobre.html) */
+.targeta-codi {
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 2.2;
+    color: var(--color-text-suau);
+}
+
+/* Comentari de codi */
+.codi-comentari {
+    color: #888;
+}
+
+/* Títol RA (sobre.html) */
+.titol-ra-verd {
+    color: var(--color-verd);
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Títol RA taronja */
+.titol-ra-taronja {
+    color: #e65100;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Aside info amb marge inferior */
+.bloc-info-mb {
+    margin-bottom: 20px;
+}
+
+/* Enllaç sense decoració (substitut de style="text-decoration:none") */
+.enllac-net {
+    text-decoration: none;
+}
+
+/* Login */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--color-fons);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    border: 1px solid var(--color-vora);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-header h1 {
+    color: var(--color-verd);
+    margin-bottom: 8px;
+    font-size: 28px;
+}
+
+.login-header p {
+    color: var(--color-text-suau);
+    font-size: 14px;
+}
+
+.login-form {
+    margin-top: 20px;
+}
+
+.login-form .grup-camp {
+    margin-bottom: 18px;
+}
+
+.login-form input {
+    height: 42px;
+    transition: border-color 0.2s;
+}
+
+.login-form input:focus {
+    border-color: var(--color-verd);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.12);
+}
+
+.boto-login {
+    width: 100%;
+    height: 44px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--color-text-suau);
+}
+
+.login-footer a {
+    color: var(--color-verd);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.jwt-info {
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+@media (max-width: 500px) {
+    .login-card {
+        padding: 22px;
+    }
+
+    .login-header h1 {
+        font-size: 24px;
+    }
+}
