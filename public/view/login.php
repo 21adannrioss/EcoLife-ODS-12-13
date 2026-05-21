@@ -41,6 +41,7 @@
                 <a href="registre.php">Registrar-se</a>
             </div>
         </section>
+        <?php include_once __DIR__ . '/../includes/footer.html'; ?>
     </main>
 </body>
 </html>

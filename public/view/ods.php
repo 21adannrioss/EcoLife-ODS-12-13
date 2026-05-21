@@ -125,10 +125,8 @@
                     </article>
                 </div>
             </section>
-
         </div>
-
-        <footer>© 2026 EcoLife · DAW</footer>
+        <?php include_once __DIR__ . '/../includes/footer.html'; ?>
     </main>
 </body>
 </html>
