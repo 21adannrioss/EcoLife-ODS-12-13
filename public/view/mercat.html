@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercat d'Intercanvi - EcoLife</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/mercat.js" defer></script>
+</head>
+<body>
+    <main>
+        <header class="header">
+            <nav>
+                <a href="../index.html" class="logo">EcoLife</a>
+                <ul>
+                    <li><a href="../index.html">Inici</a></li>
+                    <li><a href="ods.html">ODS</a></li>
+                    <li><a href="reptes.html">Reptes</a></li>
+                    <li><a href="habits.html">Hàbits</a></li>
+                    <li><a href="mercat.html" class="actiu">Mercat</a></li>
+                    <li><a href="calculadora.html">Calculadora</a></li>
+                    <li><a href="sostenibilitat.html">Sostenibilitat</a></li>
+                    <li><a href="empresa.html">Empresa</a></li>
+                    <li><a href="estadistiques.html">Estadístiques</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                </ul>
+            </nav>
+
+            <span class="etiqueta-ra">RA4 · Economia circular</span>
+            <h1>Mercat d'Intercanvi</h1>
+            <p>Intercanvia, regala o deixa objectes. Allarga la vida dels productes!</p>
+        </header>
+
+        <div class="contingut-principal">
+            <!-- Explicació de l'economia circular -->
+            <section class="seccio">
+                <aside class="bloc-info">
+                    <strong>Què és l'economia circular?</strong> En lloc de llençar les coses, les compartim, llogem, reutilitzem o reciclem.
+                    Cada article que publiques aquí és un producte que no anirà a la brossa!
+                </aside>
+            </section>
+
+            <!-- Formulari per publicar un article -->
+            <section class="seccio">
+                <h2>Publicar un article</h2>
+                <article class="targeta">
+                    <form id="formulari-mercat">
+
+                        <div class="grup-camp">
+                            <label for="camp-titol">Nom de l'article *</label>
+                            <input type="text" id="camp-titol">
+                            <p class="missatge-error" id="error-titol">El nom és obligatori.</p>
+                        </div>
+
+                        <div class="grup-camp">
+                            <label for="camp-tipus">Tipus *</label>
+                            <select id="camp-tipus">
+                                <option value="">-- Tria el tipus --</option>
+                                <option value="intercanvi">Intercanvi (vull alguna cosa a canvi)</option>
+                                <option value="regal">Regal (el dono gratis)</option>
+                                <option value="préstec">Préstec (el deixo temporalment)</option>
+                            </select>
+                            <p class="missatge-error" id="error-tipus">Has de triar el tipus.</p>
+                        </div>
+
+                        <div class="grup-camp">
+                            <label for="camp-descripcio">Descripció *</label>
+                            <textarea id="camp-descripcio" rows="3"
+                                placeholder="Descriu l'article i el seu estat actual..."></textarea>
+                            <p class="missatge-error" id="error-descripcio">La descripció és obligatòria.</p>
+                        </div>
+
+                        <div class="grup-camp">
+                            <label for="camp-contacte">Nom de contacte *</label>
+                            <input type="text" id="camp-contacte">
+                            <p class="missatge-error" id="error-contacte">El nom de contacte és obligatori.</p>
+                        </div>
+
+                        <button type="submit" class="boto boto-verd">Publicar article</button>
+                    </form>
+                </article>
+            </section>
+
+            <!-- Llista d'articles disponibles -->
+            <section class="seccio">
+                <h2>Articles disponibles</h2>
+                <div id="llista-articles"></div>
+            </section>
+        </div>
+        <footer>© 2026 EcoLife · DAW</footer>
+    </main>
+</body>
+</html>
+
