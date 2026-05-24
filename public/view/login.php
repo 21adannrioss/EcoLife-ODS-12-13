@@ -14,32 +14,36 @@
                 <p>Accedeix amb autenticació JWT segura</p>
             </div>
 
-            <!-- Missatge d'error -->
-            <div class="avis avis-error">Usuari o contrasenya incorrectes</div>
+            <?php if (isset($_GET['error'])): ?>
+                <p class="avis avis-error">
+                    <?php if ($_GET['error'] == 1): ?>
+                        Usuari o contrasenya incorrectes
+                    <?php else: ?>
+                        Cal introduir l'usuari i la contrasenya
+                    <?php endif; ?>
+                </p>
+            <?php elseif (isset($_GET['ok'])): ?>
+                <p class="avis avis-ok">Compte creat correctament. Ja pots iniciar sessió!</p>
+            <?php endif; ?>
 
-            <form class="login-form" action="login.php" method="POST">
+            <form class="login-form" action="../controller/login.proc.php" method="POST">
                 <div class="grup-camp">
-                    <label for="email">Correu electrònic</label>
-                    <input type="email "id="email" name="email" required>
+                    <label for="usu_nom">Nom d'usuari</label>
+                    <input type="text" id="usu_nom" name="usu_nom" required>
                 </div>
 
                 <div class="grup-camp">
-                    <label for="password">Contrasenya</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="usu_pass">Contrasenya</label>
+                    <input type="password" id="usu_pass" name="usu_pass" required>
                 </div>
 
                 <button type="submit" class="boto boto-verd boto-login">Entrar</button>
             </form>
 
-            <div class="jwt-info bloc-info">
-                En iniciar sessió, el servidor generarà un token JWT
-                que s’emmagatzemarà en una cookie segura.
-            </div>
-
-            <div class="login-footer">
+            <p class="login-footer">
                 No tens compte?
                 <a href="registre.php">Registrar-se</a>
-            </div>
+            </p>
         </section>
         <?php include_once __DIR__ . '/../includes/footer.html'; ?>
     </main>
