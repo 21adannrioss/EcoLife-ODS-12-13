@@ -6,6 +6,7 @@
     <title>Hàbits - EcoLife</title>
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/habits.js" defer></script>
+    <script src="../js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>

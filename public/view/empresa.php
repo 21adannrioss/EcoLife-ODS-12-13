@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empresa - EcoLife</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
