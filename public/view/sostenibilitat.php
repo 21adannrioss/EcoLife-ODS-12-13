@@ -5,25 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sostenibilitat - EcoLife</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/darkmode.js" defer></script>
 </head>
 <body>
     <main>
         <header class="header">
-            <nav>
-                <a href="../index.html" class="logo">EcoLife</a>
-                <ul>
-                    <li><a href="../index.html">Inici</a></li>
-                    <li><a href="ods.html">ODS</a></li>
-                    <li><a href="reptes.html">Reptes</a></li>
-                    <li><a href="habits.html">Hàbits</a></li>
-                    <li><a href="mercat.html">Mercat</a></li>
-                    <li><a href="calculadora.html">Calculadora</a></li>
-                    <li><a href="sostenibilitat.html" class="actiu">Sostenibilitat</a></li>
-                    <li><a href="empresa.html">Empresa</a></li>
-                    <li><a href="estadistiques.html">Estadístiques</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                </ul>
-            </nav>
+            <?php include_once __DIR__ . '/../includes/nav.php' ?>
 
             <span class="etiqueta-ra">RA3 + RA5 · Bones pràctiques i impacte mediambiental</span>
             <h1>Sostenibilitat en el Desenvolupament</h1>
@@ -63,6 +50,16 @@
                         <p class="text-secundari">
                             La navbar i els estils es reutilitzen a totes les pàgines gràcies a fitxers compartits.
                             Hem evitat repetir codi per facilitar el manteniment i reduir el pes del projecte.
+                        </p>
+                    </article>
+
+
+                    <article class="targeta">
+                        <h4>Mode Fosc</h4>
+                        <p class="text-secundari">
+                            EcoLife té un botó per activar el mode fosc. En pantalles OLED els píxels
+                            negres s'apaguen completament, estalviant fins al 60% d'energia.
+                            La preferència es guarda al navegador perquè no calgui tornar-la a activar.
                         </p>
                     </article>
 

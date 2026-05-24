@@ -385,9 +385,7 @@ footer {
     }
 }
 
-/* =============================================
-   CORRECCIONS: nav i footer dins de main
-   ============================================= */
+/* CORRECCIONS: nav i footer dins de main */
 
 /* El main ara és full-width per contenir nav i footer */
 main {
@@ -396,7 +394,7 @@ main {
     padding: 0;
 }
 
-/* Contingut interior de main (seccions i capçalera) */
+/* Contingut interior de main */
 .contingut-principal {
     max-width: 1000px;
     margin: 0 auto;
@@ -408,9 +406,8 @@ main footer {
     margin-top: 0;
 }
 
-/* =============================================
-   CLASSES PER SUBSTITUIR ESTILS INLINE
-   ============================================= */
+
+/* Classes per substituir estils inline */
 
 /* Text secundari genèric */
 .text-secundari {
@@ -426,7 +423,7 @@ main footer {
     margin-bottom: 12px;
 }
 
-/* Paràgraf descriptiu (ods, sobre, sostenibilitat) */
+/* Paràgraf descriptiu */
 .paragraf-descripcio {
     color: var(--color-text-suau);
     font-size: 14px;
@@ -465,7 +462,7 @@ main footer {
     line-height: 2;
 }
 
-/* Llista amb padding (amb punts) */
+/* Llista amb padding */
 .llista-punts {
     padding-left: 20px;
     font-size: 14px;
@@ -473,7 +470,7 @@ main footer {
     line-height: 2;
 }
 
-/* Emoji gran (icona de secció) */
+/* Emoji gran */
 .icona-gran {
     font-size: 30px;
 }
@@ -483,12 +480,12 @@ main footer {
     font-size: 40px;
 }
 
-/* Emoji d'empresa (amb marge auto) */
+/* Emoji d'empresa */
 .icona-empresa {
     font-size: 40px;
 }
 
-/* Capçalera d'article empresa (flex) */
+/* Capçalera d'article empresa */
 .capçalera-empresa {
     display: flex;
     gap: 16px;
@@ -521,7 +518,7 @@ main footer {
     margin-top: 10px;
 }
 
-/* Output de resultat (calculadora) */
+/* Output de resultat de la calculadora */
 .zona-resultat-buit {
     text-align: center;
     padding: 30px;
@@ -532,14 +529,14 @@ main footer {
     font-size: 40px;
 }
 
-/* Fila de botons (modal) */
+/* Fila de botons del modal */
 .fila-botons {
     display: flex;
     gap: 10px;
     margin-top: 10px;
 }
 
-/* Targeta de codi (sobre.html) */
+/* Targeta de codi de sobre.html */
 .targeta-codi {
     font-family: monospace;
     font-size: 14px;
@@ -670,4 +667,43 @@ main footer {
     .login-header h1 {
         font-size: 24px;
     }
+}
+
+/* Dark mode (RA5 - estalvi energètic en pantalles OLED) */
+body.dark {
+    --color-verd:       #66bb6a;
+    --color-verd-clar:  #1b2e1c;
+    --color-fons:       #121212;
+    --color-text:       #e8e8e8;
+    --color-text-suau:  #aaaaaa;
+    --color-vora:       #333333;
+    --color-navbar:     #0d2e10;
+}
+
+body.dark .targeta, body.dark .bloc-info, body.dark .login-card {
+    background-color: #1e1e1e;
+    border-color: #333;
+    color: #e8e8e8;
+}
+
+body.dark input, body.dark select, body.dark textarea {
+    background-color: #2a2a2a;
+    color: #e8e8e8;
+    border-color: #444;
+}
+
+/* Botó del Dark Mode a la navbar */
+.boto-dark {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.boto-dark:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
