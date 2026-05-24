@@ -34,6 +34,18 @@ CREATE TABLE IF NOT EXISTS registres (
 )
 ");
 
+//Articles
+$db->exec("
+    CREATE TABLE IF NOT EXISTS articles (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        titol TEXT NOT NULL,
+        tipus TEXT NOT NULL,
+        descripcio TEXT NOT NULL,
+        contacte TEXT NOT NULL,
+        data TEXT NOT NULL
+    )
+");
+
 
 
 // Insert usuaris
