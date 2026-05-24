@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ca">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +7,10 @@
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/calculadora.js" defer></script>
 </head>
-
 <body>
-
     <main>
         <header class="header">
-            <nav>
-                <a href="../index.html" class="logo">EcoLife</a>
-                <ul>
-                    <li><a href="../index.html">Inici</a></li>
-                    <li><a href="ods.html">ODS</a></li>
-                    <li><a href="reptes.html">Reptes</a></li>
-                    <li><a href="habits.html">Hàbits</a></li>
-                    <li><a href="mercat.html">Mercat</a></li>
-                    <li><a href="calculadora.html" class="actiu">Calculadora</a></li>
-                    <li><a href="sostenibilitat.html">Sostenibilitat</a></li>
-                    <li><a href="empresa.html">Empresa</a></li>
-                    <li><a href="estadistiques.html">Estadístiques</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                </ul>
-            </nav>
+            <?php include_once __DIR__ . '/../includes/nav.php' ?>
 
             <span class="etiqueta-ra">RA2 · Caracterització de reptes i accions</span>
             <h1>Calculadora de CO₂</h1>
@@ -35,14 +18,12 @@
         </header>
 
         <div class="contingut-principal">
-
             <aside class="bloc-info bloc-info-mb">
                 <strong>Per què és important?</strong> La majoria de persones no saben quines activitats diàries generen més CO₂.
                 Conèixer el teu impacte és el primer pas per millorar-lo. L'objectiu és estar per sota de 2,3 tones per any (ODS 13).
             </aside>
 
             <div class="graella-2">
-
                 <!-- Formulari de la calculadora -->
                 <article class="targeta">
                     <h3 class="titol-targeta-mb">Les teves dades</h3>

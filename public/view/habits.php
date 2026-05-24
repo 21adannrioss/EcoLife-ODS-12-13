@@ -10,21 +10,7 @@
 <body>
     <main>
         <header class="header">
-            <nav>
-                <a href="../index.html" class="logo">EcoLife</a>
-                <ul>
-                    <li><a href="../index.html">Inici</a></li>
-                    <li><a href="ods.html">ODS</a></li>
-                    <li><a href="reptes.html">Reptes</a></li>
-                    <li><a href="habits.html" class="actiu">Hàbits</a></li>
-                    <li><a href="mercat.html">Mercat</a></li>
-                    <li><a href="calculadora.html">Calculadora</a></li>
-                    <li><a href="sostenibilitat.html">Sostenibilitat</a></li>
-                    <li><a href="empresa.html">Empresa</a></li>
-                    <li><a href="estadistiques.html">Estadístiques</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                </ul>
-            </nav>
+            <?php include_once __DIR__ . '/../includes/nav.php' ?>
 
             <span class="etiqueta-ra">RA4 + RA7 · CRUD + Comunicació asíncrona</span>
             <h1>Gestió de Hàbits</h1>
