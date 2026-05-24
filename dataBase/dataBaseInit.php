@@ -42,10 +42,9 @@ $resUsuaris = $db->querySingle("SELECT COUNT(*) FROM usuaris");
 if($resUsuaris == 0) {
     $db->exec("
     INSERT INTO usuaris (usu_nom, usu_pass, rol) VALUES
-    ('Adan', 'pass2', 'admin'),
-    ('Pepe', 'pass3', 'user'),
-    ('Joan', 'pass4', 'user')
-    ");
+    ('Adan', 'bfd59291e825b5f2bbf1eb76569f8fe7', 'admin'),
+    ('Carlos', '200820e3227815ed1756a6b531e7e0d2', 'user')
+    "); // asd123, qwe123
 }
 
 // Insert hàbits
@@ -64,7 +63,6 @@ if($resHabits == 0) {
     (8, 'Menjar dieta vegetariana un dia a la setmana', 'alimentació', 2.5, '2026-03-25'),
     (9, 'Dutxa en lloc de bany', 'energia', 0.8, '2026-03-26'),
     (10, 'Reparar roba en comptes de llençar-la', 'compres', 1.9, '2026-03-28'),
-
     (11, 'Usar transport públic per anar al centre', 'transport', 1.1, '2026-04-01'),
     (12, 'Compostar restes orgàniques', 'residus', 1.2, '2026-04-02'),
     (13, 'Comprar fruita i verdura de proximitat', 'alimentació', 1.0, '2026-04-03'),
@@ -75,7 +73,6 @@ if($resHabits == 0) {
     (18, 'Instal·lar bombetes LED a casa', 'energia', 0.7, '2026-04-09'),
     (19, 'Comprar productes a granel', 'compres', 0.9, '2026-04-10'),
     (20, 'Fer servir mocadors de tela en lloc de paper', 'residus', 0.3, '2026-04-11'),
-
     (21, 'No agafar l''ascensor fins al 3r pis', 'energia', 0.2, '2026-04-12'),
     (22, 'Menjar llegums dues vegades per setmana', 'alimentació', 1.3, '2026-04-14'),
     (23, 'Anar a peu als recats del barri', 'transport', 0.6, '2026-04-15'),
