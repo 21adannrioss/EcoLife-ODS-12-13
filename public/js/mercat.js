@@ -1,4 +1,4 @@
-const urlApi = '../api/mercat.api.php'
+const urlApi = '../api/mercatApi.php'
 let articles = []
 
 
