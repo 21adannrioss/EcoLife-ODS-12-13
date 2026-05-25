@@ -1,3 +1,7 @@
+<?php
+include_once __DIR__ . '/../includes/auth.php';
+$usuari = validarToken();
+?>
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -27,9 +31,10 @@
                 </aside>
             </section>
 
-            <!-- Formulari per publicar un article -->
+            <!-- Formulari per publicar un article, només per a usuaris autenticats -->
             <section class="seccio">
                 <h2>Publicar un article</h2>
+                <?php if($usuari): ?>
                 <article class="targeta">
                     <form id="formulari-mercat">
 
@@ -65,6 +70,11 @@
                         <button type="submit" class="boto boto-verd">Publicar article</button>
                     </form>
                 </article>
+                <?php else: ?>
+                <aside class="bloc-info">
+                    <a href="../view/login.php">Inicia sessió</a> per publicar articles al mercat.
+                </aside>
+                <?php endif; ?>
             </section>
 
             <!-- Llista d'articles disponibles -->

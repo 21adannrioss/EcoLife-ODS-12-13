@@ -1,3 +1,13 @@
+<?php
+include_once __DIR__ . '/../includes/auth.php';
+$usuari = validarToken();
+
+// Cal estar autenticat
+if(!$usuari) {
+    header('Location: /view/login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="ca">
 <head>
