@@ -1,15 +1,21 @@
-let articles = [
-    {id: 1, titol: 'Bicicleta de muntanya', tipus: 'intercanvi', descripcio: 'Bon estat, talla M. Busco patinet elèctric o similar.', contacte: 'Pere S.'},
-    {id: 2, titol: 'Llibres de Batxillerat', tipus: 'regal', descripcio: 'Pack de ciències de 2n de Batx. Quasi sense ús.', contacte: 'Laura T.'},
-    {id: 3, titol: 'Roba de bebè 0-6 mesos', tipus: 'regal', descripcio: 'Lot de roba en perfecte estat. Molts colors.', contacte: 'Elena V.'}
-]
-
-// Comptador per garantir que cada article nou té un id únic.
-let seguentId = 4
+const urlApi = '../api/mercat.api.php'
+let articles = []
 
 
-// Reconstrueix tot el bloc d'articles a partir de l'array.
-function mostrarArticles() {
+// Carrega tots els articles de l'API PHP en iniciar la pàgina
+const carregarArticles = async () => {
+    try{
+        const res = await fetch(urlApi)
+        articles = await res.json()
+        mostrarArticles()
+    } catch(error){
+        document.getElementById('llista-articles').innerHTML = "<div class='avis avis-error'>No es pot connectar amb l'API.</div>"
+    }
+}
+
+
+// Reconstrueix tot el bloc d'articles a partir de l'array
+const mostrarArticles = () => {
     const contenidor = document.getElementById('llista-articles')
 
     if(articles.length === 0) {
@@ -19,6 +25,7 @@ function mostrarArticles() {
 
     let html = '<div class="graella-2">'
 
+    // Articles un a un
     for(let i = 0; i < articles.length; i++) {
         let emoji = ''
         if(articles[i].tipus === 'intercanvi') emoji = '🔄'
@@ -26,16 +33,14 @@ function mostrarArticles() {
         if(articles[i].tipus === 'préstec') emoji = '🤝'
 
         html += '<div class="targeta" id="article-' + articles[i].id + '">'
-
         html += '<p style="font-size:13px; color:#2e7d32; font-weight:bold;">' + emoji + ' ' + articles[i].tipus.toUpperCase() + '</p>'
         html += '<h3 style="margin:6px 0;">' + articles[i].titol + '</h3>'
         html += '<p style="font-size:14px; color:#555; margin-bottom:8px;">' + articles[i].descripcio + '</p>'
         html += '<p style="font-size:13px; color:#777;">' + articles[i].contacte + '</p>'
-
+        html += '<p style="font-size:12px; color:#aaa; margin-top:4px;">' + articles[i].data + '</p>'
         html += '<div style="margin-top:10px;">'
         html += '<button class="boto boto-perill" onclick="eliminarArticle(' + articles[i].id + ')">Eliminar</button>'
         html += '</div>'
-
         html += '</div>'
     }
     html += '</div>'
@@ -43,8 +48,8 @@ function mostrarArticles() {
 }
 
 
-// Comprovar que cap camp obligatori estigui buit.
-function validarFormulariMercat() {
+// Comprova que cap camp obligatori estigui buit
+const validarFormulariMercat = () => {
     let esValid = true
 
     const campsAValidar = ['titol', 'tipus', 'descripcio', 'contacte']
@@ -76,48 +81,70 @@ function validarFormulariMercat() {
         document.getElementById('error-contacte').classList.add('visible')
         esValid = false
     }
+
     return esValid
 }
 
 
-// Publicació
-document.getElementById('formulari-mercat').addEventListener('submit', function (e) {
+// Publica un article nou fent un POST a l'API
+document.getElementById('formulari-mercat').addEventListener('submit', async function(e) {
     e.preventDefault()
 
     if(!validarFormulariMercat()) return
 
     const nouArticle = {
-        id: seguentId,
-        titol: document.getElementById('camp-titol').value.trim(),
-        tipus: document.getElementById('camp-tipus').value,
+        titol:      document.getElementById('camp-titol').value.trim(),
+        tipus:      document.getElementById('camp-tipus').value,
         descripcio: document.getElementById('camp-descripcio').value.trim(),
-        contacte: document.getElementById('camp-contacte').value.trim()
+        contacte:   document.getElementById('camp-contacte').value.trim()
     }
 
-    seguentId = seguentId + 1
+    try {
+        const res = await fetch(urlApi, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(nouArticle)
+        })
 
-    articles.push(nouArticle)
+        if(!res.ok) {
+            throw new Error('Error del servidor')
+        }
 
-    document.getElementById('formulari-mercat').reset()
+        // Neteja el formulari i recarrega la llista des de la BD
+        document.getElementById('formulari-mercat').reset()
+        await carregarArticles()
 
-    mostrarArticles()
+    } catch(error) {
+        alert("Error en publicar l'article. Intenta-ho de nou.")
+    }
 })
 
 
-function eliminarArticle(id) {
+// Elimina un article fent un DELETE a l'API
+const eliminarArticle = async (id) => {
     const confirmat = confirm('Vols eliminar aquest article?')
     if(!confirmat) return
 
-    const nouArray = []
-    for(let i = 0; i < articles.length; i++) {
-        if(articles[i].id !== id) {
-            nouArray.push(articles[i])
-        }
-    }
-    articles = nouArray
+    try {
+        const res = await fetch(urlApi + '?id=' + id, {
+            method: 'DELETE'
+        })
 
-    mostrarArticles()
+        if(res.status === 401) {
+            alert('Cal iniciar sessió per eliminar articles.')
+            return
+        }
+
+        if(!res.ok) {
+            throw new Error('Error del servidor')
+        }
+
+        await carregarArticles()
+
+    } catch(error) {
+        alert("Error en eliminar l'article. Intenta-ho de nou.")
+    }
 }
 
 
-document.addEventListener('DOMContentLoaded', mostrarArticles)
+document.addEventListener('DOMContentLoaded', carregarArticles)

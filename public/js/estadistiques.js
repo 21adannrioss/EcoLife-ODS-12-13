@@ -1,11 +1,6 @@
 const urlApi = 'http://localhost:3000/api/habits'
 
-// ── FUNCIÓ PRINCIPAL ─────────────────────────────────────────
-// S'executa quan la pàgina acaba de carregar (veure el final del fitxer).
-// És "async" perquè fa await: espera la resposta de l'API sense bloquejar
-// el navegador (comunicació asíncrona).
-
-async function carregarEstadistiques() {
+const carregarEstadistiques = async () => {
     try {
         const res = await fetch(urlApi)
         const habits = await res.json()
@@ -25,7 +20,7 @@ async function carregarEstadistiques() {
 
 
 // Total d'hàbits, CO₂ estalviat i nombre de categories actives.
-function mostrarXifresGenerals(habits) {
+const mostrarXifresGenerals = (habits) => {
 
     // Sumar el CO₂ de tots els hàbits
     let totalCO2 = 0
@@ -53,8 +48,7 @@ function mostrarXifresGenerals(habits) {
 
 
 // Per a cada categoria, dibuixa una barra proporcional al nombre d'hàbits
-function mostrarGraficaCategories(habits) {
-
+const mostrarGraficaCategories = (habits) => {
     // Comptar quants hàbits hi ha de cada categoria
     let comptador = {}
     for(let i = 0; i < habits.length; i++) {
@@ -113,8 +107,7 @@ function mostrarGraficaCategories(habits) {
 
 
 // Generar una taula HTML amb una fila per cada hàbit de l'array
-
-function mostrarTaula(habits) {
+const mostrarTaula = (habits) => {
     if(habits.length === 0) {
         document.getElementById('taula-habits').innerHTML = '<p>Encara no hi ha hàbits registrats.</p>'
         return

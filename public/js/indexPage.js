@@ -1,4 +1,4 @@
-async function carregarEstadistiques() {
+const carregarEstadistiques = async () => {
     try{
         const resposta = await fetch('http://localhost:3000/api/habits')
         const habits = await resposta.json()

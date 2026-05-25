@@ -2,7 +2,7 @@ const urlApi = 'http://localhost:3000/api/habits'
 let llistaHabits = []
 let idActual = null
 
-async function carregarHabits() {
+const carregarHabits = async () => {
     try{
         const res = await fetch(urlApi)
         llistaHabits = await res.json()
@@ -15,7 +15,7 @@ async function carregarHabits() {
 
 
 // Construeix una taula HTML a partir de llistaHabits i la injecta al DOM
-function mostrarHabits() {
+const mostrarHabits = () => {
     if(llistaHabits.length === 0) {
         document.getElementById('llista-habits').innerHTML = '<p>Encara no hi ha hàbits.</p>'
         return
@@ -27,7 +27,7 @@ function mostrarHabits() {
     html += '</tr></div>'
     html += '<div>'
 
-    // Una fila <tr> per cada hàbit de l'array
+    // Una fila per cada hàbit de l'array
     for(let i = 0; i < llistaHabits.length; i++) {
         html += '<tr>'
         html += '<td><strong>' + llistaHabits[i].nom + '</strong></td>'
@@ -50,7 +50,7 @@ function mostrarHabits() {
 }
 
 
-function validarFormulari() {
+const validarFormulari = () => {
     let esValid = true
 
     // Neteja dels errors d'un enviament anterior
@@ -124,7 +124,7 @@ document.getElementById('formulari-habit').addEventListener('submit', async func
 })
 
 // Permís per editar
-function obrirModal(id) {
+const obrirModal = (id) => {
     let habit = null
     for(let i = 0; i < llistaHabits.length; i++) {
         if(llistaHabits[i].id === id) {
@@ -146,7 +146,7 @@ function obrirModal(id) {
 
 
 // Tanca el modal i neteja l'id que estàvem editant
-function tancarModal() {
+const tancarModal = () => {
     document.getElementById('modal-editar').classList.remove('obert')
     idActual = null
 }
@@ -191,7 +191,7 @@ document.getElementById('formulari-editar').addEventListener('submit', async fun
 })
 
 
-async function eliminarHabit(id) {
+const eliminarHabit = async (id) => {
     const confirmat = confirm('Estàs segur que vols eliminar aquest hàbit?')
     if(!confirmat) return
 
@@ -214,12 +214,12 @@ async function eliminarHabit(id) {
 
 
 // Mostra un missatge temporal de feedback a l'usuari
-function mostrarAvis(missatge, tipus) {
+const mostrarAvis = (missatge, tipus) => {
     const zona = document.getElementById('zona-avis')
     zona.innerHTML = '<div class="avis avis-' + tipus + '">' + missatge + '</div>'
 
     // Passada l'espera, buida la zona perquè l'avís desaparegui
-    setTimeout(function () {
+    setTimeout(() => {
         zona.innerHTML = ''
     }, 3000)
 }
