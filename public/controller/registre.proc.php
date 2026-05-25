@@ -29,7 +29,7 @@ if($existent) {
 }
 
 // Inserir el nou usuari amb la contrasenya en MD5
-$stmt = $db->prepare("INSERT INTO usuaris (usu_nom, usu_pass, rol) VALUES (:nom, :pass, 'usuari')");
+$stmt = $db->prepare("INSERT INTO usuaris (usu_nom, usu_pass, rol) VALUES (:nom, :pass, 'user')");
 $stmt->bindValue(":nom", $nom, SQLITE3_TEXT);
 $stmt->bindValue(":pass", md5($contrasenya), SQLITE3_TEXT);
 $stmt->execute();

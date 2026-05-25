@@ -12,7 +12,6 @@
         <section class="login-card">
             <div class="login-header">
                 <h1>Iniciar sessió</h1>
-                <p>Accedeix amb autenticació JWT segura</p>
             </div>
 
             <?php if (isset($_GET['error'])): ?>
