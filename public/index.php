@@ -33,25 +33,25 @@
             <section class="seccio">
                 <h2>Explora l'aplicació</h2>
                 <div class="graella-2">
-                    <a href="view/habits.html" class="enllac-net">
+                    <a href="view/habits.php" class="enllac-net">
                         <article class="targeta">
                             <h3>Gestió de Hàbits</h3>
                             <p class="text-secundari">Afegeix, edita i elimina els teus hàbits sostenibles. CRUD</p>
                         </article>
                     </a>
-                    <a href="view/mercat.html" class="enllac-net">
+                    <a href="view/mercat.php" class="enllac-net">
                         <article class="targeta">
                             <h3>Mercat d'Intercanvi</h3>
                             <p class="text-secundari">Intercanvia i regala objectes que ja no necessites. Economia circular</p>
                         </article>
                     </a>
-                    <a href="view/calculadora.html" class="enllac-net">
+                    <a href="view/calculadora.php" class="enllac-net">
                         <article class="targeta">
                             <h3>Calculadora CO₂</h3>
                             <p class="text-secundari">Calcula quantes emissions generes cada any amb les teves activitats.</p>
                         </article>
                     </a>
-                    <a href="view/estadistiques.html" class="enllac-net">
+                    <a href="view/estadistiques.php" class="enllac-net">
                         <article class="targeta">
                             <h3>Estadístiques</h3>
                             <p class="text-secundari">Veu l'impacte de tots els hàbits registrats carregats des de l'API.</p>
