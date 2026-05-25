@@ -1,121 +1,83 @@
-// npm install
+// Dependència per la base de dades: npm install better-sqlite3
 // Per arrencar: npm run dev
+// php -S localhost:8000 -t public
 
 import express from 'express'
-import fs from 'fs'
+import Database from 'better-sqlite3'
 
-// Crear l'aplicació express
 const app = express()
 const port = 3000
+const db = new Database('dataBase/ecoLifeDB.db')
 
-// Permet que express llegeixi dades JSON
+// Per utilitzar php i js a la vegada
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8000')
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+    next()
+})
+
 app.use(express.json())
-
-// Serveix els fitxers de la carpeta public
 app.use(express.static('public'))
 
 
-// Llegeix el fitxer db.json i retorna les dades
-function llegirDades() {
-    const text = fs.readFileSync('dataBase/db.json', 'utf-8')
-    return JSON.parse(text)
-}
-
-// Guardar les dades al fitxer db.json
-function guardarDades(dades) {
-    fs.writeFileSync('dataBase/db.json', JSON.stringify(dades, null, 2))
-}
-
-
-// ENDPOINT GET: Obtenir tots els hàbits
+// GET: obté tots els hàbits
 app.get('/api/habits', function (req, res) {
-    const dades = llegirDades()
-    res.json(dades.habits)
+    const habits = db.prepare('SELECT * FROM habits ORDER BY id ASC').all()
+    res.json(habits)
 })
 
 
-// ENDPOINT POST: Crear un nou hàbit
+// POST: crea un nou hàbit
 app.post('/api/habits', function (req, res) {
-    // Llegir les dades que arriben del formulari
     const nom = req.body.nom
     const categoria = req.body.categoria
     const co2 = req.body.co2
 
-    // Comprovar que el nom i la categoria no estiguin buits
     if(!nom || !categoria) {
         return res.status(400).json({ error: 'El nom i la categoria son obligatoris' })
     }
 
-    const dades = llegirDades()
+    const data = new Date().toISOString().split('T')[0]
 
-    // Crear un nou hàbit
-    const nouHabit = {
-        id: dades.habits.length + 1,
-        nom: nom,
-        categoria: categoria,
-        co2: parseFloat(co2) || 0,
-        data: new Date().toISOString().split('T')[0]
-    }
+    const stmt = db.prepare('INSERT INTO habits (nom, categoria, co2, data) VALUES (?, ?, ?, ?)')
+    const info = stmt.run(nom, categoria, parseFloat(co2) || 0, data)
 
-    // Afegir a la llista
-    dades.habits.push(nouHabit)
-    guardarDades(dades)
-
-    // Retornar el nou hàbit creat
+    const nouHabit = db.prepare('SELECT * FROM habits WHERE id = ?').get(info.lastInsertRowid)
     res.status(201).json(nouHabit)
 })
 
 
-// ENDPOINT PUT: Editar un hàbit existent
+// PUT: edita un hàbit existent
 app.put('/api/habits/:id', function (req, res) {
     const id = parseInt(req.params.id)
-    const dades = llegirDades()
 
-    // Busquem el hàbit amb aquest id
-    let habitTrobat = null
-    let posicio = -1
-
-    for(let i = 0; i < dades.habits.length; i++) {
-        if(dades.habits[i].id === id) {
-            habitTrobat = dades.habits[i]
-            posicio = i
-            break
-        }
-    }
-
-    // Si no existeix, retornem error
-    if(posicio === -1) {
+    const habitActual = db.prepare('SELECT * FROM habits WHERE id = ?').get(id)
+    if(!habitActual) {
         return res.status(404).json({ error: 'Habit no trobat' })
     }
 
-    // Actualitzar els camps
-    dades.habits[posicio].nom = req.body.nom || habitTrobat.nom
-    dades.habits[posicio].categoria = req.body.categoria || habitTrobat.categoria
-    dades.habits[posicio].co2 = parseFloat(req.body.co2) || habitTrobat.co2
+    const nom = req.body.nom || habitActual.nom
+    const categoria = req.body.categoria || habitActual.categoria
+    const co2 = parseFloat(req.body.co2) || habitActual.co2
 
-    guardarDades(dades)
-    res.json(dades.habits[posicio])
+    db.prepare('UPDATE habits SET nom = ?, categoria = ?, co2 = ? WHERE id = ?').run(nom, categoria, co2, id)
+
+    const habitActualitzat = db.prepare('SELECT * FROM habits WHERE id = ?').get(id)
+    res.json(habitActualitzat)
 })
 
 
-// ENDPOINT DELETE: Eliminar un hàbit
+// DELETE: elimina un hàbit
 app.delete('/api/habits/:id', function (req, res) {
     const id = parseInt(req.params.id)
-    const dades = llegirDades()
+    const info = db.prepare('DELETE FROM habits WHERE id = ?').run(id)
 
-    // Buscar el hàbit
-    const posicio = dades.habits.findIndex(function (h) {
-        return h.id === id
-    })
-
-    if(posicio === -1) {
-        return res.status(404).json({ error: 'Habit no trobat' })
+    if(info.changes === 0) {
+        return res.status(404).json({ error: 'Hàbit no trobat' })
     }
 
-    dades.habits.splice(posicio, 1)
-    guardarDades(dades)
-
-    res.json({ missatge: 'Habit eliminat' })
+    res.json({ missatge: 'Hàbit eliminat' })
 })
 
 
