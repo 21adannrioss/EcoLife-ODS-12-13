@@ -97,4 +97,23 @@ if($resHabits == 0) {
     (30, 'Imprimir a doble cara sempre', 'residus', 0.2, '2026-04-23')
     ");
 }
+
+// Insert hàbits
+$resArticles = $db->querySingle("SELECT COUNT(*) FROM articles");
+
+if($resArticles == 0) {
+$db->exec("
+    INSERT INTO articles (titol, tipus, descripcio, contacte, data) VALUES
+    ('Bicicleta de muntanya', 'intercanvi', 'Bicicleta en bon estat, canvis Shimano. Busco patinete elèctric o similar.', 'Pere - 612 345 678', '2026-03-10'),
+    ('Llibres de text 1r ESO', 'regal', 'Conjunt complet de llibres de primer d''ESO, bon estat. Els regalo, no els necessito.', 'Marta - marta@email.com', '2026-03-12'),
+    ('Taula de fusta', 'intercanvi', 'Taula de menjador per a 4 persones. Busco cadires o moble de televisió.', 'Joan - 634 567 890', '2026-03-15'),
+    ('Roba de bebè 0-6 mesos', 'regal', 'Bossa amb roba de bebè en molt bon estat. Tot net i en perfectes condicions.', 'Laura - 698 234 567', '2026-03-17'),
+    ('Patins en línia talla 38', 'préstec', 'Patins per a l''estiu, els deixo un mes. Deixar fiança simbòlica.', 'Carlos - carlos@email.com', '2026-03-20'),
+    ('Cafetera italiana', 'regal', 'Cafetera moka de 6 tasses, funciona perfectament. Me n''han regalat una nova.', 'Núria - 611 789 012', '2026-03-22'),
+    ('Tenda de campanya 4 places', 'préstec', 'Tenda per a cap de setmana o setmana. Bon estat, inclou sacs de terra.', 'Andreu - 645 321 098', '2026-03-25'),
+    ('Monitor 24 polzades', 'intercanvi', 'Monitor Full HD, HDMI i VGA. Busco teclat mecànic o auriculars.', 'Sofia - sofia@email.com', '2026-03-28'),
+    ('Llibres de cuina', 'regal', 'Col·lecció de 8 llibres de cuina mediterrània i vegana. Molt bon estat.', 'Rosa - 622 456 789', '2026-04-01'),
+    ('Escúter elèctric', 'intercanvi', 'Patinete elèctric 25 km/h, autonomia 20 km. Busco bicicleta o consola.', 'Marc - 677 890 123', '2026-04-03')
+    ");
+}
 ?>
