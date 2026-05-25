@@ -262,7 +262,7 @@ Sistema complet d'autenticació. El registre xifra la contrasenya en MD5. El log
 
 ### 1. Instal·lar dependències (primera vegada)
 ```bash
-npm install
+npm install better-sqlite3
 ```
 
 ### 2. Iniciar els dos servidors (cada vegada)
