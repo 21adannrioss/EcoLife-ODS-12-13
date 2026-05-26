@@ -483,11 +483,6 @@ main footer {
     font-size: 30px;
 }
 
-/* Emoji molt gran */
-.icona-xl {
-    font-size: 40px;
-}
-
 /* img d'empresa */
 .img-empresa {
     margin-left: 40px;
@@ -738,5 +733,3 @@ body.dark input, body.dark select, body.dark textarea {
 .boto-dark:hover {
     background: rgba(255, 255, 255, 0.15);
 }
-
-/* Botó de login/logout a la navbar */

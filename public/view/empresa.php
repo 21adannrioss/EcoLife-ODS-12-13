@@ -70,7 +70,6 @@
                 <h2>Grups d'interès (Stakeholders)</h2>
                 <div class="graella-3">
                     <article class="targeta">
-                        <p class="icona-xl">👷</p>
                         <h4 class="titol-targeta">Treballadors</h4>
                         <p class="text-secundari">
                             Apple publica anualment un informe de responsabilitat dels proveïdors,
@@ -78,7 +77,6 @@
                         </p>
                     </article>
                     <article class="targeta">
-                        <p class="icona-xl">🛒</p>
                         <h4 class="titol-targeta">Clients</h4>
                         <p class="text-secundari">
                             El programa <em>Apple Trade In</em> permet tornar dispositius vells a canvi d'un descompte,
@@ -86,7 +84,6 @@
                         </p>
                     </article>
                     <article class="targeta">
-                        <p class="icona-xl">🌍</p>
                         <h4 class="titol-targeta">Comunitat</h4>
                         <p class="text-secundari">
                             Apple ha invertit en programes educatius STEM per a comunitats desfavorides
