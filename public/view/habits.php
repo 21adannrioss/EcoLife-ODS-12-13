@@ -23,7 +23,6 @@ if(!$usuari) {
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
-            <span class="etiqueta-ra">RA4 + RA7 · CRUD + Comunicació asíncrona</span>
             <h1>Gestió de Hàbits</h1>
             <p>Afegeix, consulta, edita i elimina els teus hàbits sostenibles.</p>
         </header>
@@ -108,6 +107,41 @@ if(!$usuari) {
                     </form>
                 </article>
             </div>
+            
+            <?php if($usuari): ?>
+                <div id="modal-editar-article" class="modal-overlay">
+                    <div class="modal-contingut">
+                        <h3>Editar article</h3>
+                        <form id="formulari-editar-article">
+                            <div class="grup-camp">
+                                <label for="edit-titol">Títol *</label>
+                                <input type="text" id="edit-titol" />
+                            </div>
+                            <div class="grup-camp">
+                                <label for="edit-tipus">Tipus *</label>
+                                <select id="edit-tipus">
+                                    <option value="">-- Selecciona --</option>
+                                    <option value="intercanvi">Intercanvi</option>
+                                    <option value="regal">Regal</option>
+                                    <option value="préstec">Préstec</option>
+                                </select>
+                            </div>
+                            <div class="grup-camp">
+                                <label for="edit-descripcio">Descripció *</label>
+                                <textarea id="edit-descripcio" rows="3"></textarea>
+                            </div>
+                            <div class="grup-camp">
+                                <label for="edit-contacte">Contacte *</label>
+                                <input type="text" id="edit-contacte" />
+                            </div>
+                            <div class="fila-botons">
+                                <button type="submit" class="boto boto-verd">Desar canvis</button>
+                                <button type="button" class="boto boto-gris" onclick="tancarModalArticle()">Cancel·lar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
         <?php include_once __DIR__ . '/../../includes/footer.html'; ?>
     </main>
