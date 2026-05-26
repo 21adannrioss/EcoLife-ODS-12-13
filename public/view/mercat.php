@@ -2,11 +2,7 @@
 include_once __DIR__ . '/../../includes/auth.php';
 $usuari = validarToken();
 ?>
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include_once __DIR__ . '/../../includes/meta.php'; ?>
     <title>Mercat d'Intercanvi - EcoLife</title>
     <link rel="stylesheet" href="/public/css/styles.css">
     <script src="/js/mercat.js" defer></script>
@@ -75,7 +71,8 @@ $usuari = validarToken();
                 </aside>
                 <?php endif; ?>
             </section>
-
+            
+            <?php if($usuari): ?>
             <!-- Llista d'articles disponibles -->
             <section class="seccio">
                 <h2>Articles disponibles</h2>
@@ -83,7 +80,6 @@ $usuari = validarToken();
             </section>
 
             <!-- Modal editar -->
-            <?php if($usuari): ?>
             <div id="modal-editar-article" class="modal-overlay">
                 <div class="modal-contingut">
                     <h3>Editar article</h3>

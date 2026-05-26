@@ -8,11 +8,7 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
     exit();
 }
 ?>
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include_once __DIR__ . '/../../includes/meta.php'; ?>
     <title>Panel Admin - EcoLife</title>
     <link rel="stylesheet" href="/public/css/styles.css">
     <script src="/js/modeFosc.js" defer></script>

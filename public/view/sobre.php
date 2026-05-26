@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include_once __DIR__ . '/../../includes/meta.php'; ?>
     <title>Sobre el projecte - EcoLife</title>
     <link rel="stylesheet" href="/public/css/styles.css">
     <script src="/js/modeFosc.js" defer></script>
@@ -11,17 +7,13 @@
     <main>
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
-
             <h1>Sobre EcoLife</h1>
-            <p>Projecte Fase 7 · Comunicació asíncrona · DAW</p>
         </header>
 
         <div class="contingut-principal">
             <section class="seccio">
                 <h2>Descripció del projecte</h2>
-                <p class="paragraf-descripcio">
-                    EcoLife és una aplicació web dinàmica desenvolupada com a projecte del cicle formatiu de Desenvolupament d'Aplicacions Web (DAW).
-                </p>
+                <p class="paragraf-descripcio">EcoLife és una aplicació web dinàmica desenvolupada com a projecte del cicle formatiu de Desenvolupament d'Aplicacions Web (DAW).</p>
                 <p class="paragraf-descripcio">
                     L'aplicació treballa els <strong>ODS 12</strong> (Consum i Producció Responsables) i
                     <strong>ODS 13</strong> (Acció pel Clima), permetent als usuaris registrar hàbits sostenibles,
