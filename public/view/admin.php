@@ -31,13 +31,12 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
                     $result = $db->query("SELECT usu_nom, rol FROM usuaris ORDER BY rol DESC, usu_nom ASC");
 
                     echo '<table>';
-                    echo '<thead><tr><th>Usuari</th><th>Rol</th><th>Accions</th></tr></thead>';
+                    echo '<thead><tr><th>Usuari</th><th>Rol</th></tr></thead>';
                     echo '<tbody>';
                     while($fila = $result->fetchArray(SQLITE3_ASSOC)) {
                         echo '<tr>';
                         echo '<td>' . htmlspecialchars($fila['usu_nom']) . '</td>';
                         echo '<td>' . htmlspecialchars($fila['rol']) . '</td>';
-                        echo '<td><em style="color:#aaa; font-size:13px;">Pròximament</em></td>';
                         echo '</tr>';
                     }
                     echo '</tbody></table>';

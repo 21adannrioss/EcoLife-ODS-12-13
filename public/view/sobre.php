@@ -40,7 +40,7 @@
                         <ul class="llista-neta">
                             <li>Node.js</li>
                             <li>Express.js</li>
-                            <li>Persistència amb db.json</li>
+                            <li>Persistència amb SQLite (better-sqlite3)</li>
                             <li>API REST (GET, POST, PUT, DELETE)</li>
                             <li>nodemon per al desenvolupament</li>
                         </ul>
