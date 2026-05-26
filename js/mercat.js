@@ -1,5 +1,6 @@
-const urlApi = '../api/mercatApi.php'
+const urlApi = '/api/mercatApi.php'
 let articles = []
+let idArticleActual = null
 
 
 // Carrega tots els articles de l'API PHP en iniciar la pàgina
@@ -39,6 +40,7 @@ const mostrarArticles = () => {
         html += '<p style="font-size:13px; color:#777;">' + articles[i].contacte + '</p>'
         html += '<p style="font-size:12px; color:#aaa; margin-top:4px;">' + articles[i].data + '</p>'
         html += '<div style="margin-top:10px;">'
+        html += '<button class="boto boto-editar" onclick="obrirModalArticle(' + articles[i].id + ')">Editar</button> '
         html += '<button class="boto boto-perill" onclick="eliminarArticle(' + articles[i].id + ')">Eliminar</button>'
         html += '</div>'
         html += '</div>'
@@ -93,10 +95,10 @@ document.getElementById('formulari-mercat').addEventListener('submit', async fun
     if(!validarFormulariMercat()) return
 
     const nouArticle = {
-        titol:      document.getElementById('camp-titol').value.trim(),
-        tipus:      document.getElementById('camp-tipus').value,
+        titol: document.getElementById('camp-titol').value.trim(),
+        tipus: document.getElementById('camp-tipus').value,
         descripcio: document.getElementById('camp-descripcio').value.trim(),
-        contacte:   document.getElementById('camp-contacte').value.trim()
+        contacte: document.getElementById('camp-contacte').value.trim()
     }
 
     try {
@@ -146,5 +148,73 @@ const eliminarArticle = async (id) => {
     }
 }
 
+// Omple el modal amb les dades de l'article seleccionat i el mostra
+const obrirModalArticle = (id) => {
+    let article = null
+    for(let i = 0; i < articles.length; i++) {
+        if(articles[i].id === id) {
+            article = articles[i]
+            break
+        }
+    }
+    if(!article) return
+
+    idArticleActual = id
+    document.getElementById('edit-titol').value = article.titol
+    document.getElementById('edit-tipus').value = article.tipus
+    document.getElementById('edit-descripcio').value = article.descripcio
+    document.getElementById('edit-contacte').value = article.contacte
+    document.getElementById('modal-editar-article').classList.add('obert')
+}
+
+// Tanca el modal i neteja l'id que s'estava editant
+const tancarModalArticle = () => {
+    document.getElementById('modal-editar-article').classList.remove('obert')
+    idArticleActual = null
+}
+
+// Valida els camps i envia un PUT a l'API per actualitzar l'article
+document.getElementById('formulari-editar-article').addEventListener('submit', async function(e) {
+    e.preventDefault()
+    if(!idArticleActual) return
+
+    let esValid = true
+    const camps = ['edit-titol', 'edit-tipus', 'edit-descripcio', 'edit-contacte']
+    for(let i = 0; i < camps.length; i++) {
+        document.getElementById(camps[i]).classList.remove('camp-error')
+    }
+
+    for(let i = 0; i < camps.length; i++) {
+        if(!document.getElementById(camps[i]).value.trim()) {
+            document.getElementById(camps[i]).classList.add('camp-error')
+            esValid = false
+        }
+    }
+
+    if(!esValid) return
+
+    const dades = {
+        titol: document.getElementById('edit-titol').value.trim(),
+        tipus: document.getElementById('edit-tipus').value,
+        descripcio: document.getElementById('edit-descripcio').value.trim(),
+        contacte: document.getElementById('edit-contacte').value.trim()
+    }
+
+    try {
+        const res = await fetch(urlApi + '?id=' + idArticleActual, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(dades)
+        })
+
+        if(!res.ok) throw new Error('Error del servidor')
+
+        tancarModalArticle()
+        await carregarArticles()
+
+    } catch(error) {
+        alert("Error en actualitzar l'article. Intenta-ho de nou.")
+    }
+})
 
 document.addEventListener('DOMContentLoaded', carregarArticles)

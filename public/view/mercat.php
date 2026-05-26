@@ -17,7 +17,6 @@ $usuari = validarToken();
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
-            <span class="etiqueta-ra">RA4 · Economia circular</span>
             <h1>Mercat d'Intercanvi</h1>
             <p>Intercanvia, regala o deixa objectes. Allarga la vida dels productes!</p>
         </header>
@@ -82,9 +81,46 @@ $usuari = validarToken();
                 <h2>Articles disponibles</h2>
                 <div id="llista-articles"></div>
             </section>
+
+            <!-- Modal editar -->
+            <?php if($usuari): ?>
+            <div id="modal-editar-article" class="modal-overlay">
+                <div class="modal-contingut">
+                    <h3>Editar article</h3>
+                    <form id="formulari-editar-article">
+                        <div class="grup-camp">
+                            <label for="edit-titol">Títol *</label>
+                            <input type="text" id="edit-titol" />
+                        </div>
+                        <div class="grup-camp">
+                            <label for="edit-tipus">Tipus *</label>
+                            <select id="edit-tipus">
+                                <option value="">-- Selecciona --</option>
+                                <option value="intercanvi">Intercanvi</option>
+                                <option value="regal">Regal</option>
+                                <option value="préstec">Préstec</option>
+                            </select>
+                        </div>
+                        <div class="grup-camp">
+                            <label for="edit-descripcio">Descripció *</label>
+                            <textarea id="edit-descripcio" rows="3"></textarea>
+                        </div>
+                        <div class="grup-camp">
+                            <label for="edit-contacte">Contacte *</label>
+                            <input type="text" id="edit-contacte" />
+                        </div>
+                        <div class="fila-botons">
+                            <button type="submit" class="boto boto-verd">Desar canvis</button>
+                            <button type="button" class="boto boto-gris" onclick="tancarModalArticle()">Cancel·lar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <?php endif; ?>
         </div>
-        <?php include_once __DIR__ . '/../../includes/footer.html'; ?>
+        <?php include_once __DIR__ . '/../../includes/footer.html'; ?>  
     </main>
+
+    
 </body>
 </html>
-
