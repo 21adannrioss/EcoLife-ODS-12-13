@@ -12,7 +12,6 @@
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
-            <span class="etiqueta-ra">RA6 · Pla de sostenibilitat empresarial</span>
             <h1>Anàlisi d'Empresa Real</h1>
             <p>Estudi de l'informe de sostenibilitat d'una empresa tecnològica.</p>
         </header>
@@ -21,11 +20,10 @@
             <!-- Presentació de l'empresa -->
             <section class="seccio">
                 <article class="targeta capçalera-empresa">
-                    <span class="icona-empresa">🍎</span>
+                    <img class="img-empresa" src="/includes/img/AppleLogo.jpg" alt="Apple">
                     <div>
                         <h2>Apple Inc.</h2>
-                        <p class="subtitol-empresa">Empresa tecnològica · Cupertino, Califòrnia · Informe de
-                            sostenibilitat 2023</p>
+                        <p class="subtitol-empresa">Empresa tecnològica · Cupertino, Califòrnia · Informe de sostenibilitat 2023</p>
                     </div>
                 </article>
             </section>
@@ -34,9 +32,7 @@
                 <aside class="bloc-info">
                     <strong>Per què Apple?</strong> He triat Apple perquè és una empresa molt coneguda amb un pla de
                     sostenibilitat molt concret.
-                    A l'informe anual publiquen dades reals i objectius amb dates, cosa que permet analitzar si estan
-                    complint els
-                    seus compromisos.
+                    A l'informe anual publiquen dades reals i objectius amb dates, cosa que permet analitzar si estan complint els seus compromisos.
                 </aside>
             </section>
 
