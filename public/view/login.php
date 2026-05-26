@@ -1,6 +1,7 @@
 <?php include_once __DIR__ . '/../../includes/meta.php'; ?>
     <title>Login - EcoLife</title>
     <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/js/login.js" defer></script>
     <script src="/js/modeFosc.js" defer></script>
 </head>
 <body>

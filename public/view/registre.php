@@ -1,6 +1,7 @@
 <?php include_once __DIR__ . '/../../includes/meta.php'; ?>
     <title>Registre - EcoLife</title>
     <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/js/registre.js" defer></script>
     <script src="/js/modeFosc.js" defer></script>
 </head>
 <body>
