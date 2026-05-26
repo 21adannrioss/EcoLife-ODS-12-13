@@ -38,6 +38,7 @@ app.post('/api/habits', function (req, res) {
         return res.status(400).json({ error: 'El nom i la categoria son obligatoris' })
     }
 
+    // Obté la data actual en format YYYY-MM-DD.
     const data = new Date().toISOString().split('T')[0]
 
     const stmt = db.prepare('INSERT INTO habits (nom, categoria, co2, data) VALUES (?, ?, ?, ?)')

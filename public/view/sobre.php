@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre el projecte - EcoLife</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/modeFosc.js" defer></script>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
         <header class="header">
-            <?php include_once __DIR__ . '/../includes/nav.php' ?>
+            <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
             <h1>Sobre EcoLife</h1>
             <p>Projecte Fase 7 · Comunicació asíncrona · DAW</p>
@@ -92,13 +92,16 @@
                 <h2>Com executar el projecte</h2>
                 <article class="targeta targeta-codi">
                     <p><span class="codi-comentari"># Pas 1: Instal·la les dependències</span></p>
-                    <p>npm install</p>
+                    <p>npm install better-sqlite3</p>
                     <br />
-                    <p><span class="codi-comentari"># Pas 2: Arrenca el servidor amb nodemon</span></p>
+                    <p><span class="codi-comentari"># Pas 2: Terminal 1 - Arrenca el servidor amb nodemon</span></p>
                     <p>npm run dev</p>
                     <br />
-                    <p><span class="codi-comentari"># Pas 3: Obre el navegador a</span></p>
-                    <p>http://localhost:3000</p>
+                    <p><span class="codi-comentari"># Pas 3: Terminal 2 - Arrenca el servidor amb php</span></p>
+                    <p>php -S localhost:8000 -t public</p>
+                    <br />
+                    <p><span class="codi-comentari"># Pas 4: Obre el navegador a</span></p>
+                    <p>http://localhost:8000</p>
                 </article>
             </section>
 
@@ -118,7 +121,7 @@
                 </aside>
             </section>
         </div>
-        <?php include_once __DIR__ . '/../includes/footer.html'; ?>
+        <?php include_once __DIR__ . '/../../includes/footer.html'; ?>
     </main>
 </body>
 </html>

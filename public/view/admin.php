@@ -1,10 +1,10 @@
 <?php
-include_once __DIR__ . '/../includes/auth.php';
+include_once __DIR__ . '/../../includes/auth.php';
 $usuari = validarToken();
 
 // Si no és admin, redirigeix a l'inici
 if(!$usuari || $usuari['rol'] !== 'admin') {
-    header('Location: /index.php');
+    header('Location: /public/view/index.php');
     exit();
 }
 ?>
@@ -14,13 +14,13 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Admin - EcoLife</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/modeFosc.js" defer></script>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
         <header class="header">
-            <?php include_once __DIR__ . '/../includes/nav.php' ?>
+            <?php include_once __DIR__ . '/../../includes/nav.php' ?>
             <span class="etiqueta-ra">Panel d'administració</span>
             <h1>Panel Admin</h1>
             <p>Benvingut, <?= htmlspecialchars($usuari['nom']) ?>. Tens accés complet a la gestió.</p>
@@ -32,7 +32,7 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
                 <h2>Usuaris registrats</h2>
                 <div id="llista-usuaris">
                     <?php
-                    include_once __DIR__ . '/../includes/db_connect.php';
+                    include_once __DIR__ . '/../../includes/db_connect.php';
                     $result = $db->query("SELECT usu_nom, rol FROM usuaris ORDER BY rol DESC, usu_nom ASC");
 
                     echo '<table>';
@@ -100,7 +100,7 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
             </section>
 
         </div>
-        <?php include_once __DIR__ . '/../includes/footer.html'; ?>
+        <?php include_once __DIR__ . '/../../includes/footer.html'; ?>
     </main>
 
     <script>
@@ -108,7 +108,7 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
         async function eliminarArticleAdmin(id) {
             if(!confirm('Vols eliminar aquest article?')) return
 
-            const res = await fetch('../api/mercatApi.php?id=' + id, {method: 'DELETE'})
+            const res = await fetch('/api/mercatApi.php?id=' + id, {method: 'DELETE'})
 
             if(res.ok) {
                 // Recarrega la pàgina per actualitzar la taula

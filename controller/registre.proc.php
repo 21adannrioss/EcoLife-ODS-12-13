@@ -1,5 +1,5 @@
 <?php
-include("../includes/db_connect.php");
+include_once __DIR__ . ("/../includes/db_connect.php");
 
 $nom = $_POST["usu_nom"] ?? "";
 $contrasenya = $_POST["usu_pass"] ?? "";
@@ -7,13 +7,13 @@ $confirmar = $_POST["usu_pass_confirm"] ?? "";
 
 // Comprova que s'han enviat dades
 if(!$nom || !$contrasenya || !$confirmar) {
-    header("Location: /view/registre.php?error=1");
+    header("Location: /public/view/registre.php?error=1");
     exit();
 }
 
 // Comprova que les contrasenyes coincideixen
 if($contrasenya !== $confirmar) {
-    header("Location: /view/registre.php?error=2");
+    header("Location: /public/view/registre.php?error=2");
     exit();
 }
 
@@ -24,7 +24,7 @@ $result = $stmt->execute();
 $existent = $result->fetchArray(SQLITE3_ASSOC);
 
 if($existent) {
-    header("Location: /view/registre.php?error=3");
+    header("Location: /public/view/registre.php?error=3");
     exit();
 }
 
@@ -35,5 +35,5 @@ $stmt->bindValue(":pass", md5($contrasenya), SQLITE3_TEXT);
 $stmt->execute();
 
 // Redirigeix al login amb missatge d'èxit
-header("Location: /view/login.php?ok=1");
+header("Location: /public/view/login.php?ok=1");
 exit();

@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ODS - EcoLife STATIC</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/modeFosc.js" defer></script>
+    <title>ODS - EcoLife</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
         <header class="header">
-            <?php include_once __DIR__ . '/../includes/nav.php' ?>
+            <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
             <span class="etiqueta-ra">RA1 · Identificació ASG i marcs internacionals</span>
             <h1>ODS 12 i ODS 13</h1>
@@ -113,7 +113,7 @@
                 </div>
             </section>
         </div>
-        <?php include_once __DIR__ . '/../includes/footer.html'; ?>
+        <?php include_once __DIR__ . '/../../includes/footer.html'; ?>
     </main>
 </body>
 </html>

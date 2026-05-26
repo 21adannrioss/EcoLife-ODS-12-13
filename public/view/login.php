@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - EcoLife</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/modeFosc.js" defer></script>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main class="login-container">
@@ -26,7 +26,7 @@
                 <p class="avis avis-ok">Compte creat correctament. Ja pots iniciar sessió!</p>
             <?php endif; ?>
 
-            <form class="login-form" action="../controller/login.proc.php" method="POST">
+            <form class="login-form" action="/controller/login.proc.php" method="POST">
                 <div class="grup-camp">
                     <label for="usu_nom">Nom d'usuari</label>
                     <input type="text" id="usu_nom" name="usu_nom" required>
@@ -42,10 +42,10 @@
 
             <p class="login-footer">
                 No tens compte?
-                <a href="registre.php">Registrar-se</a>
+                <a href="/public/view/registre.php">Registrar-se</a>
             </p>
         </section>
-        <?php include_once __DIR__ . '/../includes/footer.html'; ?>
+        <?php include_once __DIR__ . '/../../includes/footer.html'; ?>
     </main>
 </body>
 </html>

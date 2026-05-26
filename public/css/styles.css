@@ -114,15 +114,6 @@ nav ul li a.actiu {
     opacity: 0.9;
 }
 
-.etiqueta-ra {
-    display: inline-block;
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 13px;
-    margin-bottom: 12px;
-}
-
 /* CONTINGUT PRINCIPAL */
 main {
     max-width: 1000px;

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora CO₂ - EcoLife</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/calculadora.js" defer></script>
-    <script src="../js/modeFosc.js" defer></script>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/js/calculadora.js" defer></script>
+    <script src="/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
         <header class="header">
-            <?php include_once __DIR__ . '/../includes/nav.php' ?>
+            <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
             <span class="etiqueta-ra">RA2 · Caracterització de reptes i accions</span>
             <h1>Calculadora de CO₂</h1>
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-        <?php include_once __DIR__ . '/../includes/footer.html'; ?>
+        <?php include_once __DIR__ . '/../../includes/footer.html'; ?>
     </main>
 </body>
 </html>

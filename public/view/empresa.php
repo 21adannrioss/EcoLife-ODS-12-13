@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empresa - EcoLife</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/modeFosc.js" defer></script>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
         <header class="header">
-            <?php include_once __DIR__ . '/../includes/nav.php' ?>
+            <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
             <span class="etiqueta-ra">RA6 · Pla de sostenibilitat empresarial</span>
             <h1>Anàlisi d'Empresa Real</h1>
@@ -114,8 +114,7 @@
                 </aside>
                 <aside class="bloc-info">
                     <strong>Objectius científics (SBTi):</strong> Els seus objectius estan alineats amb la ciència
-                    climàtica
-                    per limitar l'escalfament global a 1,5°C, directament relacionat amb l'ODS 13.
+                    climàtica per limitar l'escalfament global a 1,5°C, directament relacionat amb l'ODS 13.
                 </aside>
             </section>
 
@@ -143,7 +142,7 @@
                 </div>
             </section>
         </div>
-        <?php include_once __DIR__ . '/../includes/footer.html'; ?>
+        <?php include_once __DIR__ . '/../../includes/footer.html'; ?>
     </main>
 </body>
 </html>

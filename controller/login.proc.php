@@ -1,5 +1,5 @@
 <?php
-include("../includes/db_connect.php");
+include_once __DIR__ . ("/../includes/db_connect.php");
 
 $nom = $_POST["usu_nom"]?? "";
 $contrasenya = $_POST["usu_pass"]?? "";
@@ -22,13 +22,13 @@ if($nom && $contrasenya) {
         $token = "$header.$payload.$signatura";
 
         setcookie("token", $token, time() + 3600, "/");
-        header("Location: /index.php");
+        header("Location: /public/view/index.php");
         exit();
     } else{
-        header("Location: /view/login.php?error=1");
+        header("Location: /public/view/login.php?error=1");
         exit();
     }
 } else{
-    header("Location: /view/login.php?error=2");
+    header("Location: /public/view/login.php?error=2");
     exit();
 }

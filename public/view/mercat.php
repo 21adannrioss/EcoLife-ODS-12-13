@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/../includes/auth.php';
+include_once __DIR__ . '/../../includes/auth.php';
 $usuari = validarToken();
 ?>
 <!DOCTYPE html>
@@ -8,14 +8,14 @@ $usuari = validarToken();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercat d'Intercanvi - EcoLife</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/mercat.js" defer></script>
-    <script src="../js/modeFosc.js" defer></script>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/js/mercat.js" defer></script>
+    <script src="/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
         <header class="header">
-            <?php include_once __DIR__ . '/../includes/nav.php' ?>
+            <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
             <span class="etiqueta-ra">RA4 · Economia circular</span>
             <h1>Mercat d'Intercanvi</h1>
@@ -72,7 +72,7 @@ $usuari = validarToken();
                 </article>
                 <?php else: ?>
                 <aside class="bloc-info">
-                    <a href="../view/login.php">Inicia sessió</a> per publicar articles al mercat.
+                    <a href="/public/view/login.php">Inicia sessió</a> per publicar articles al mercat.
                 </aside>
                 <?php endif; ?>
             </section>
@@ -83,7 +83,7 @@ $usuari = validarToken();
                 <div id="llista-articles"></div>
             </section>
         </div>
-        <?php include_once __DIR__ . '/../includes/footer.html'; ?>
+        <?php include_once __DIR__ . '/../../includes/footer.html'; ?>
     </main>
 </body>
 </html>
