@@ -38,7 +38,7 @@ const mostrarHabits = () => {
         html += '<td>' + (llistaHabits[i].data || '-') + '</td>'
 
         html += '<td>'
-        html += '<button class="boto boto-editar" onclick="obrirModal(' + llistaHabits[i].id + ')">✏ Editar</button> '
+        html += '<button class="boto boto-editar" onclick="obrirModal(' + llistaHabits[i].id + ')">Editar</button> '
         html += '<button class="boto boto-perill" onclick="eliminarHabit(' + llistaHabits[i].id + ')">Eliminar</button>'
         html += '</td>'
 
@@ -163,6 +163,34 @@ document.getElementById('formulari-editar').addEventListener('submit', async fun
     e.preventDefault()
 
     if(!idActual) return
+
+    // Validacions
+     let esValid = true
+
+    // Netejar missatges d'error
+    document.getElementById('edit-nom').classList.remove('camp-error')
+    document.getElementById('edit-co2').classList.remove('camp-error')
+    document.getElementById('error-edit-nom').classList.remove('visible')
+    document.getElementById('error-edit-co2').classList.remove('visible')
+
+    const nom = document.getElementById('edit-nom').value.trim()
+    if(nom.length < 3) {
+        document.getElementById('edit-nom').classList.add('camp-error')
+        document.getElementById('error-edit-nom').classList.add('visible')
+        esValid = false
+    }
+
+    const co2Text = document.getElementById('edit-co2').value
+    if(co2Text !== '') {
+        const co2 = parseFloat(co2Text)
+        if(isNaN(co2) || co2 < 0 || co2 > 100) {
+            document.getElementById('edit-co2').classList.add('camp-error')
+            document.getElementById('error-edit-nom').classList.add('visible')
+            esValid = false
+        }
+    }
+
+    if(!esValid) return
 
     const dades = {
         nom: document.getElementById('edit-nom').value.trim(),

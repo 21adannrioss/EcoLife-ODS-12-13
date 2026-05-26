@@ -1,10 +1,10 @@
 <?php
-include_once __DIR__ . '/../includes/auth.php';
+include_once __DIR__ . '/../../includes/auth.php';
 $usuari = validarToken();
 
 // Cal estar autenticat
 if(!$usuari) {
-    header('Location: /view/login.php');
+    header('Location: /public/view/login.php');
     exit();
 }
 ?>
@@ -14,14 +14,14 @@ if(!$usuari) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hàbits - EcoLife</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/habits.js" defer></script>
-    <script src="../js/modeFosc.js" defer></script>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/js/habits.js" defer></script>
+    <script src="/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
         <header class="header">
-            <?php include_once __DIR__ . '/../includes/nav.php' ?>
+            <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
             <span class="etiqueta-ra">RA4 + RA7 · CRUD + Comunicació asíncrona</span>
             <h1>Gestió de Hàbits</h1>
@@ -49,7 +49,7 @@ if(!$usuari) {
                                 <option value="transport">Transport</option>
                                 <option value="residus">Residus</option>
                                 <option value="alimentació">Alimentació</option>
-                                <option value="energia">⚡ Energia</option>
+                                <option value="energia">Energia</option>
                                 <option value="compres">Compres</option>
                             </select>
                             <p class="missatge-error" id="error-categoria">Has de triar una categoria.</p>
@@ -68,7 +68,7 @@ if(!$usuari) {
 
             <!-- Llista de hàbits carregada des de l'API -->
             <section class="seccio">
-                <h2>Llista de hàbits</h2>
+                <h2>Llista d'hàbits</h2>
                 <div id="llista-habits">
                     <p>Carregant dades...</p>
                 </div>
@@ -80,7 +80,8 @@ if(!$usuari) {
                     <form id="formulari-editar">
                         <div class="grup-camp">
                             <label for="edit-nom">Nom *</label>
-                            <input type="text" id="edit-nom" />
+                            <input type="text" id="edit-nom">
+                            <p class="missatge-error" id="error-edit-nom">El nom és obligatori i ha de tenir mínim 3 caràcters.</p>
                         </div>
 
                         <div class="grup-camp">
@@ -96,7 +97,8 @@ if(!$usuari) {
 
                         <div class="grup-camp">
                             <label for="edit-co2">CO₂ estalviat (kg)</label>
-                            <input type="number" id="edit-co2" step="0.1" min="0" />
+                            <input type="number" id="edit-co2" step="0.1" min="0">
+                            <p class="missatge-error" id="error-edit-co2">Ha de ser un número entre 0 i 100.</p>
                         </div>
 
                         <div class="fila-botons">
@@ -107,7 +109,7 @@ if(!$usuari) {
                 </article>
             </div>
         </div>
-        <?php include_once __DIR__ . '/../includes/footer.html'; ?>
+        <?php include_once __DIR__ . '/../../includes/footer.html'; ?>
     </main>
 </body>
 </html>
