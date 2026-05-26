@@ -30,7 +30,7 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
                     include_once __DIR__ . '/../../includes/db_connect.php';
                     $result = $db->query("SELECT usu_nom, rol FROM usuaris ORDER BY rol DESC, usu_nom ASC");
 
-                    echo '<table>';
+                    echo '<div class="taula-responsive"><table>';
                     echo '<thead><tr><th>Usuari</th><th>Rol</th></tr></thead>';
                     echo '<tbody>';
                     while($fila = $result->fetchArray(SQLITE3_ASSOC)) {
@@ -39,7 +39,7 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
                         echo '<td>' . htmlspecialchars($fila['rol']) . '</td>';
                         echo '</tr>';
                     }
-                    echo '</tbody></table>';
+                    echo '</tbody></table></div>';
                     ?>
                 </div>
             </section>
@@ -51,7 +51,7 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
                     <?php
                     $result2 = $db->query("SELECT * FROM articles ORDER BY id DESC");
 
-                    echo '<table>';
+                    echo '<div class="taula-responsive"><table>';
                     echo '<thead><tr><th>Títol</th><th>Tipus</th><th>Contacte</th><th>Data</th><th>Accions</th></tr></thead>';
                     echo '<tbody>';
                     while($fila = $result2->fetchArray(SQLITE3_ASSOC)) {
@@ -65,7 +65,7 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
                         echo '</td>';
                         echo '</tr>';
                     }
-                    echo '</tbody></table>';
+                    echo '</tbody></table></div>';
                     ?>
                 </div>
             </section>
@@ -77,7 +77,7 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
                     <?php
                     $result3 = $db->query("SELECT * FROM habits ORDER BY id ASC");
 
-                    echo '<table>';
+                    echo '<div class="taula-responsive"><table>';
                     echo '<thead><tr><th>Nom</th><th>Categoria</th><th>CO₂</th><th>Data</th></tr></thead>';
                     echo '<tbody>';
                     while($fila = $result3->fetchArray(SQLITE3_ASSOC)) {
@@ -88,7 +88,7 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
                         echo '<td style="color:#777;">' . $fila['data'] . '</td>';
                         echo '</tr>';
                     }
-                    echo '</tbody></table>';
+                    echo '</tbody></table></div>';
                     ?>
                 </div>
             </section>

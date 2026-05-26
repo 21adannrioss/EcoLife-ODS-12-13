@@ -29,3 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })
 })
+
+// Menú desplegable
+document.getElementById('btn-menu').addEventListener('click', function() {
+    const menu = document.getElementById('nav-menu')
+    const obert = menu.classList.toggle('obert')
+    this.setAttribute('aria-expanded', obert)
+    this.textContent = obert ? '✕' : '☰'
+})
+
+// Tancar el menú en fer click a un enllaç
+document.querySelectorAll('#nav-menu a').forEach(function(link) {
+    link.addEventListener('click', function() {
+        document.getElementById('nav-menu').classList.remove('obert')
+        document.getElementById('btn-menu').textContent = '☰'
+    })
+})

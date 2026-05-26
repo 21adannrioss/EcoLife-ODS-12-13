@@ -26,15 +26,17 @@ body {
     line-height: 1.5;
 }
 
-/* NAVEGADOR */
+/*   NAVEGACIÓ
+*/
+
 nav {
     background-color: var(--color-navbar);
     padding: 12px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
     gap: 10px;
+    position: relative;
 }
 
 nav a.logo {
@@ -42,13 +44,15 @@ nav a.logo {
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 4px;
+    align-items: center;
 }
 
 nav ul li a {
@@ -57,11 +61,26 @@ nav ul li a {
     padding: 6px 10px;
     border-radius: 4px;
     font-size: 14px;
+    display: block;
+    white-space: nowrap;
 }
 
 nav ul li a:hover,
 nav ul li a.actiu {
     background-color: var(--color-verd);
+}
+
+.nav-accions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.nav-usuari {
+    color: white;
+    font-size: 14px;
+    white-space: nowrap;
 }
 
 .boto-nav {
@@ -81,7 +100,22 @@ nav ul li a.actiu {
     background: rgba(255, 255, 255, 0.15);
 }
 
-/* CAPÇALERA DE PÀGINA */
+/* Botó hamburguesa (ocult per defecte) */
+.btn-menu {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 4px 10px;
+    line-height: 1;
+}
+
+/*   CAPÇALERA DE PÀGINA
+*/
+
 .header {
     background-color: var(--color-verd);
     color: white;
@@ -89,33 +123,40 @@ nav ul li a.actiu {
     padding: 0;
 }
 
-/* Espai interior de la capçalera, excloent el nav */
-.header> :not(nav) {
+.header > :not(nav) {
     display: block;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.header> :not(nav):first-of-type {
+.header > :not(nav):first-of-type {
     padding-top: 40px;
 }
 
-.header> :not(nav):last-child {
+.header > :not(nav):last-child {
     padding-bottom: 40px;
 }
 
 .header h1 {
-    font-size: 28px;
+    font-size: clamp(20px, 4vw, 28px);
     margin-bottom: 8px;
 }
 
 .header p {
-    font-size: 16px;
+    font-size: clamp(13px, 2vw, 16px);
     opacity: 0.9;
 }
 
-/* CONTINGUT PRINCIPAL */
+/*   ESTRUCTURA PRINCIPAL
+*/
+
 main {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.contingut-principal {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
@@ -127,13 +168,30 @@ main {
 
 .seccio h2 {
     color: var(--color-verd);
-    font-size: 18px;
+    font-size: clamp(16px, 2.5vw, 18px);
     border-bottom: 2px solid var(--color-verd-clar);
     padding-bottom: 8px;
     margin-bottom: 15px;
 }
 
-/* TARGETES */
+/*   GRAELLES RESPONSIVE
+*/
+
+.graella-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.graella-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/*   TARGETES
+*/
+
 .targeta {
     background: white;
     border: 1px solid var(--color-vora);
@@ -142,19 +200,9 @@ main {
     margin-bottom: 12px;
 }
 
-.graella-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
+/*   BOTONS
+*/
 
-.graella-3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
-}
-
-/* BOTONS */
 .boto {
     padding: 8px 16px;
     border: none;
@@ -162,6 +210,7 @@ main {
     cursor: pointer;
     font-size: 14px;
     font-family: Arial, sans-serif;
+    touch-action: manipulation;
 }
 
 .boto-verd {
@@ -196,7 +245,9 @@ main {
     color: #333;
 }
 
-/* FORMULARIS */
+/*   FORMULARIS
+*/
+
 .grup-camp {
     margin-bottom: 14px;
 }
@@ -213,15 +264,16 @@ main {
 .grup-camp select,
 .grup-camp textarea {
     width: 100%;
-    padding: 8px 10px;
+    padding: 10px 12px;
     border: 1px solid var(--color-vora);
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 16px; /* 16px evita zoom automàtic a iOS */
     font-family: Arial, sans-serif;
 }
 
 .grup-camp input:focus,
-.grup-camp select:focus {
+.grup-camp select:focus,
+.grup-camp textarea:focus {
     outline: none;
     border-color: var(--color-verd);
 }
@@ -241,11 +293,20 @@ main {
     display: block;
 }
 
-/* TAULES */
+/*   TAULES RESPONSIVE
+*/
+
+.taula-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
+    min-width: 400px;
 }
 
 table th {
@@ -253,6 +314,7 @@ table th {
     color: white;
     padding: 10px 12px;
     text-align: left;
+    white-space: nowrap;
 }
 
 table td {
@@ -264,7 +326,9 @@ table tr:hover {
     background-color: var(--color-verd-clar);
 }
 
-/* AVISOS I MISSATGES */
+/*   AVISOS I MISSATGES
+*/
+
 .avis {
     padding: 10px 14px;
     border-radius: 5px;
@@ -290,7 +354,9 @@ table tr:hover {
     border: 1px solid #90caf9;
 }
 
-/* ESTADISTIQUES - XIFRES GRANS */
+/*   ESTADISTIQUES
+*/
+
 .xifra-gran {
     text-align: center;
     padding: 20px;
@@ -298,7 +364,7 @@ table tr:hover {
 
 .xifra-gran span {
     display: block;
-    font-size: 36px;
+    font-size: clamp(24px, 5vw, 36px);
     font-weight: bold;
     color: var(--color-verd);
 }
@@ -309,7 +375,9 @@ table tr:hover {
     margin-top: 4px;
 }
 
-/* BARRA DE PROGRÉS */
+/*   BARRA DE PROGRÉS
+*/
+
 .barra-fons {
     background-color: var(--color-verd-clar);
     border-radius: 4px;
@@ -323,7 +391,9 @@ table tr:hover {
     border-radius: 4px;
 }
 
-/* BLOC D'INFORMACIÓ */
+/*   BLOC D'INFORMACIÓ
+*/
+
 .bloc-info {
     background-color: var(--color-verd-clar);
     border-left: 4px solid var(--color-verd);
@@ -334,9 +404,10 @@ table tr:hover {
     color: var(--color-text);
 }
 
-/* MODAL (finestra emergent per editar) */
-/* dialog és l'element HTML5 natiu per a modals */
-dialog.fons-modal {
+/*   MODAL
+*/
+
+.fons-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -344,254 +415,67 @@ dialog.fons-modal {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
+    z-index: 200;
     justify-content: center;
     align-items: center;
-    border: none;
-    padding: 0;
-    max-width: 100%;
-    max-height: 100%;
+    padding: 16px;
 }
 
-dialog.fons-modal.obert {
+.fons-modal.obert {
     display: flex;
 }
 
-.modal {
+/* Compatibilitat amb modal-overlay (mercat) */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.modal-overlay.obert {
+    display: flex;
+}
+
+.modal,
+.modal-contingut {
     background: white;
     border-radius: 8px;
     padding: 24px;
-    width: 90%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
-.modal h3 {
+.modal h3,
+.modal-contingut h3 {
     margin-bottom: 16px;
     color: var(--color-verd);
 }
 
-/* FOOTER */
+/*   FOOTER
+*/
+
 footer {
     text-align: center;
     padding: 20px;
-    margin-top: 40px;
+    margin-top: 0;
     font-size: 13px;
     color: var(--color-text-suau);
     border-top: 1px solid var(--color-vora);
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
+/*   LOGIN
+*/
 
-    .graella-2,
-    .graella-3 {
-        grid-template-columns: 1fr;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-}
-
-/* CORRECCIONS: nav i footer dins de main */
-
-/* El main ara és full-width per contenir nav i footer */
-main {
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-/* Contingut interior de main */
-.contingut-principal {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Footer dins de main */
-main footer {
-    margin-top: 0;
-}
-
-
-/* Classes per substituir estils inline */
-
-/* Text secundari genèric */
-.text-secundari {
-    color: var(--color-text-suau);
-    font-size: 14px;
-}
-
-/* Text secundari amb interlineat */
-.text-secundari-espaiat {
-    color: var(--color-text-suau);
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 12px;
-}
-
-/* Paràgraf descriptiu */
-.paragraf-descripcio {
-    color: var(--color-text-suau);
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 10px;
-}
-
-/* Títol de secció verd dins de targeta */
-.titol-targeta {
-    color: var(--color-verd);
-    margin-bottom: 10px;
-}
-
-/* Títol amb marge inferior gran */
-.titol-targeta-mb {
-    color: var(--color-verd);
-    margin-bottom: 16px;
-}
-
-/* Subtítol taronja */
-.titol-taronja {
-    color: #e65100;
-    margin-bottom: 10px;
-}
-
-/* Xifra destacada en taronja */
-.xifra-taronja {
-    color: #e65100;
-}
-
-/* Llista estilitzada sense punts */
-.llista-neta {
-    list-style: none;
-    font-size: 14px;
-    color: var(--color-text-suau);
-    line-height: 2;
-}
-
-/* Llista amb padding */
-.llista-punts {
-    padding-left: 20px;
-    font-size: 14px;
-    color: var(--color-text-suau);
-    line-height: 2;
-}
-
-/* Emoji gran */
-.icona-gran {
-    font-size: 30px;
-}
-
-/* img d'empresa */
-.img-empresa {
-    margin-left: 40px;
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
-    border-radius: 100%;
-    padding: 12px;
-    flex-shrink: 0;
-}
-
-.capçalera-empresa {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    padding: 24px;
-}
-
-/* Capçalera d'article empresa */
-.capçalera-empresa {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-}
-
-/* Subtítol d'empresa */
-.subtitol-empresa {
-    font-size: 14px;
-    color: var(--color-text-suau);
-}
-
-/* Label de categoria dins form calculadora */
-.label-categoria {
-    font-weight: bold;
-    color: var(--color-verd);
-    margin-bottom: 10px;
-}
-
-/* Label de categoria amb marge superior */
-.label-categoria-mt {
-    font-weight: bold;
-    color: var(--color-verd);
-    margin: 16px 0 10px;
-}
-
-/* Botó d'amplada completa */
-.boto-complet {
-    width: 100%;
-    margin-top: 10px;
-}
-
-/* Output de resultat de la calculadora */
-.zona-resultat-buit {
-    text-align: center;
-    padding: 30px;
-}
-
-/* Emoji resultat calculadora */
-.emoji-resultat {
-    font-size: 40px;
-}
-
-/* Fila de botons del modal */
-.fila-botons {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-/* Targeta de codi de sobre.html */
-.targeta-codi {
-    font-family: monospace;
-    font-size: 14px;
-    line-height: 2.2;
-    color: var(--color-text-suau);
-}
-
-/* Comentari de codi */
-.codi-comentari {
-    color: #888;
-}
-
-/* Títol RA (sobre.html) */
-.titol-ra-verd {
-    color: var(--color-verd);
-    font-size: 13px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-/* Títol RA taronja */
-.titol-ra-taronja {
-    color: #e65100;
-    font-size: 13px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-/* Aside info amb marge inferior */
-.bloc-info-mb {
-    margin-bottom: 20px;
-}
-
-/* Enllaç sense decoració (substitut de style="text-decoration:none") */
-.enllac-net {
-    text-decoration: none;
-}
-
-/* Login */
 .login-container {
     min-height: 100vh;
     display: flex;
@@ -618,7 +502,7 @@ main footer {
     border: 1px solid var(--color-vora);
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .login-header {
@@ -685,40 +569,167 @@ main footer {
     font-size: 13px;
 }
 
-@media (max-width: 500px) {
-    .login-card {
-        padding: 22px;
-    }
+/*   EMPRESA
+*/
 
-    .login-header h1 {
-        font-size: 24px;
-    }
+.img-empresa {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 50%;
+    padding: 12px;
+    flex-shrink: 0;
+    background-color: #000;
 }
 
-/* Dark mode (RA5 - estalvi energètic en pantalles OLED) */
-body.dark {
-    --color-verd:       #66bb6a;
-    --color-verd-clar:  #1b2e1c;
-    --color-fons:       #121212;
-    --color-text:       #e8e8e8;
-    --color-text-suau:  #aaaaaa;
-    --color-vora:       #333333;
-    --color-navbar:     #0d2e10;
+.capçalera-empresa {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 24px;
+    flex-wrap: wrap;
 }
 
-body.dark .targeta, body.dark .bloc-info, body.dark .login-card {
-    background-color: #1e1e1e;
-    border-color: #333;
-    color: #e8e8e8;
+.subtitol-empresa {
+    font-size: 14px;
+    color: var(--color-text-suau);
 }
 
-body.dark input, body.dark select, body.dark textarea {
-    background-color: #2a2a2a;
-    color: #e8e8e8;
-    border-color: #444;
+/*   UTILITATS
+*/
+
+.text-secundari {
+    color: var(--color-text-suau);
+    font-size: 14px;
 }
 
-/* Botó del Dark Mode a la navbar */
+.text-secundari-espaiat {
+    color: var(--color-text-suau);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.paragraf-descripcio {
+    color: var(--color-text-suau);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.titol-targeta {
+    color: var(--color-verd);
+    margin-bottom: 10px;
+}
+
+.titol-targeta-mb {
+    color: var(--color-verd);
+    margin-bottom: 16px;
+}
+
+.titol-taronja {
+    color: #e65100;
+    margin-bottom: 10px;
+}
+
+.xifra-taronja {
+    color: #e65100;
+}
+
+.llista-neta {
+    list-style: none;
+    font-size: 14px;
+    color: var(--color-text-suau);
+    line-height: 2;
+}
+
+.llista-punts {
+    padding-left: 20px;
+    font-size: 14px;
+    color: var(--color-text-suau);
+    line-height: 2;
+}
+
+.icona-gran {
+    font-size: 30px;
+}
+
+.icona-xl {
+    font-size: 40px;
+}
+
+.label-categoria {
+    font-weight: bold;
+    color: var(--color-verd);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.label-categoria-mt {
+    font-weight: bold;
+    color: var(--color-verd);
+    margin: 16px 0 10px;
+    display: block;
+}
+
+.boto-complet {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.zona-resultat-buit {
+    text-align: center;
+    padding: 30px;
+}
+
+.emoji-resultat {
+    font-size: 40px;
+}
+
+.fila-botons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.targeta-codi {
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 2.2;
+    color: var(--color-text-suau);
+    overflow-x: auto;
+}
+
+.codi-comentari {
+    color: #888;
+}
+
+.titol-ra-verd {
+    color: var(--color-verd);
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.titol-ra-taronja {
+    color: #e65100;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.bloc-info-mb {
+    margin-bottom: 20px;
+}
+
+.enllac-net {
+    text-decoration: none;
+}
+
+/*   BOTÓ DARK MODE
+*/
+
 .boto-dark {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.4);
@@ -728,8 +739,231 @@ body.dark input, body.dark select, body.dark textarea {
     font-size: 16px;
     cursor: pointer;
     flex-shrink: 0;
+    line-height: 1;
 }
 
 .boto-dark:hover {
     background: rgba(255, 255, 255, 0.15);
+}
+
+/*   DARK MODE
+*/
+
+body.dark {
+    --color-verd:      #66bb6a;
+    --color-verd-clar: #1b2e1c;
+    --color-fons:      #121212;
+    --color-text:      #e8e8e8;
+    --color-text-suau: #aaaaaa;
+    --color-vora:      #333333;
+    --color-navbar:    #0d2e10;
+}
+
+body.dark .targeta,
+body.dark .bloc-info,
+body.dark .login-card {
+    background-color: #1e1e1e;
+    border-color: #333;
+    color: #e8e8e8;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+    background-color: #2a2a2a;
+    color: #e8e8e8;
+    border-color: #444;
+}
+
+body.dark .modal,
+body.dark .modal-contingut {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    color: #e8e8e8;
+}
+
+body.dark .modal h3,
+body.dark .modal-contingut h3 {
+    color: #66bb6a;
+}
+
+body.dark .modal label,
+body.dark .modal-contingut label {
+    color: #e8e8e8;
+}
+
+body.dark table td {
+    color: #e8e8e8;
+}
+
+body.dark table tr:hover {
+    background-color: #1b2e1c;
+}
+
+/*   RESPONSIVE — TABLET (< 1024px)
+*/
+
+@media (max-width: 1024px) {
+    .contingut-principal {
+        padding: 16px;
+    }
+
+    nav ul li a {
+        padding: 5px 8px;
+        font-size: 13px;
+    }
+}
+
+/*   RESPONSIVE — TABLET PETIT (< 768px)
+*/
+
+@media (max-width: 768px) {
+    /* Navbar: amagar links, mostrar hamburguesa */
+    .btn-menu {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 2px;
+        padding: 8px 0;
+    }
+
+    nav ul.obert {
+        display: flex;
+    }
+
+    nav ul li a {
+        padding: 10px 12px;
+        font-size: 15px;
+        border-radius: 6px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .nav-accions {
+        order: 2;
+    }
+
+    .btn-menu {
+        order: 3;
+    }
+
+    /* Graelles passen a 2 columnes */
+    .graella-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Capçalera empresa */
+    .capçalera-empresa {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+    }
+
+    .img-empresa {
+        margin-left: 0;
+        width: 90px;
+        height: 90px;
+    }
+
+    /* Modal a pantalla completa en tablet */
+    .modal,
+    .modal-contingut {
+        max-width: 100%;
+        padding: 20px;
+    }
+}
+
+/*   RESPONSIVE — MÒBIL (< 480px)
+*/
+
+@media (max-width: 480px) {
+    /* Graelles passen a 1 columna */
+    .graella-2,
+    .graella-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .contingut-principal {
+        padding: 12px;
+    }
+
+    .header > :not(nav):first-of-type {
+        padding-top: 24px;
+    }
+
+    .header > :not(nav):last-child {
+        padding-bottom: 24px;
+    }
+
+    /* Botons d'acció en taula: apilats */
+    .fila-botons {
+        flex-direction: column;
+    }
+
+    .fila-botons .boto {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    /* Botó submit gran per tàctil */
+    button[type="submit"].boto,
+    .boto-complet {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    /* Login card sense padding excessiu */
+    .login-card {
+        padding: 20px 16px;
+    }
+
+    .login-header h1 {
+        font-size: 24px;
+    }
+
+    /* Taula: botones editar/eliminar en columna */
+    table td .boto {
+        display: block;
+        width: 100%;
+        margin-bottom: 4px;
+        text-align: center;
+    }
+
+    /* Nav usuari ocult en mòbil molt petit */
+    .nav-usuari {
+        display: none;
+    }
+
+    .seccio {
+        margin-bottom: 20px;
+    }
+
+    .targeta {
+        padding: 12px;
+    }
+}
+
+/*   RESPONSIVE — MÒBIL MÉS PETIT (< 360px)
+*/
+
+@media (max-width: 360px) {
+    nav a.logo {
+        font-size: 16px;
+    }
+
+    .boto-nav {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
 }

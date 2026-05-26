@@ -5,7 +5,8 @@ $usuari = validarToken();
 ?>
 <nav>
     <a href="/public/view/index.php" class="logo">EcoLife</a>
-    <ul>
+
+    <ul id="nav-menu">
         <li><a href="/public/view/index.php">Inici</a></li>
         <li><a href="/public/view/ods.php">ODS</a></li>
         <li><a href="/public/view/reptes.php">Reptes</a></li>
@@ -16,22 +17,20 @@ $usuari = validarToken();
         <li><a href="/public/view/empresa.php">Empresa</a></li>
         <li><a href="/public/view/estadistiques.php">Estadístiques</a></li>
         <li><a href="/public/view/sobre.php">Sobre</a></li>
-
         <?php if($usuari && $usuari['rol'] === 'admin'): ?>
-            <!-- Només visible per als admins -->
             <li><a href="/public/view/admin.php">Admin</a></li>
         <?php endif; ?>
     </ul>
 
-    <div style="display:flex; align-items:center; gap:10px;">
+    <div class="nav-accions">
         <?php if($usuari): ?>
-            <!-- Usuari autenticat -->
-            <span style="color:white; font-size:14px;">Hola, <?= htmlspecialchars($usuari['nom']) ?></span>
+            <span class="nav-usuari">Hola, <?= htmlspecialchars($usuari['nom']) ?></span>
             <a href="/controller/logout.proc.php" class="boto-nav">Tancar sessió</a>
         <?php else: ?>
-            <!-- Usuari no autenticat -->
             <a href="/public/view/login.php" class="boto-nav">Iniciar sessió</a>
         <?php endif; ?>
         <button id="btn-dark" class="boto-dark" title="Canviar mode">🌙</button>
     </div>
+
+    <button class="btn-menu" id="btn-menu" aria-label="Menú" aria-expanded="false">☰</button>
 </nav>
