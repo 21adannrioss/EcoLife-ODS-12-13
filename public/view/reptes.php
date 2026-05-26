@@ -12,7 +12,6 @@
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
-            <span class="etiqueta-ra">RA2 · Caracterització de reptes i accions</span>
             <h1>Reptes Ambientals</h1>
             <p>Problemes concrets relacionats amb els ODS 12 i 13, i com EcoLife hi respon.</p>
         </header>

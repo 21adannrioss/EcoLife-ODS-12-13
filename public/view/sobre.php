@@ -20,8 +20,7 @@
             <section class="seccio">
                 <h2>Descripció del projecte</h2>
                 <p class="paragraf-descripcio">
-                    EcoLife és una aplicació web dinàmica desenvolupada com a projecte del cicle formatiu de
-                    Desenvolupament d'Aplicacions Web (DAW), Fase 7.
+                    EcoLife és una aplicació web dinàmica desenvolupada com a projecte del cicle formatiu de Desenvolupament d'Aplicacions Web (DAW).
                 </p>
                 <p class="paragraf-descripcio">
                     L'aplicació treballa els <strong>ODS 12</strong> (Consum i Producció Responsables) i
@@ -98,7 +97,7 @@
                     <p>npm run dev</p>
                     <br />
                     <p><span class="codi-comentari"># Pas 3: Terminal 2 - Arrenca el servidor amb php</span></p>
-                    <p>php -S localhost:8000 -t public</p>
+                    <p>php -S localhost:8000</p>
                     <br />
                     <p><span class="codi-comentari"># Pas 4: Obre el navegador a</span></p>
                     <p>http://localhost:8000</p>

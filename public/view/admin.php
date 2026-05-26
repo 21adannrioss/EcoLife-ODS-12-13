@@ -21,7 +21,6 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
     <main>
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
-            <span class="etiqueta-ra">Panel d'administració</span>
             <h1>Panel Admin</h1>
             <p>Benvingut, <?= htmlspecialchars($usuari['nom']) ?>. Tens accés complet a la gestió.</p>
         </header>

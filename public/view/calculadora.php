@@ -13,7 +13,6 @@
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
-            <span class="etiqueta-ra">RA2 · Caracterització de reptes i accions</span>
             <h1>Calculadora de CO₂</h1>
             <p>Descobreix quanta contaminació generes cada any.</p>
         </header>

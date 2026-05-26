@@ -12,7 +12,6 @@
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
-            <span class="etiqueta-ra">RA3 + RA5 · Bones pràctiques i impacte mediambiental</span>
             <h1>Sostenibilitat en el Desenvolupament</h1>
             <p>Com hem aplicat bones pràctiques durant la creació d'EcoLife.</p>
         </header>

@@ -13,7 +13,6 @@
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
-            <span class="etiqueta-ra">RA7 · Comunicació asíncrona · GET</span>
             <h1>Estadístiques</h1>
         </header>
 

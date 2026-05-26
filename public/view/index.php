@@ -13,7 +13,7 @@
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
-            <span class="etiqueta-ra">ODS 12 i ODS 13</span>
+            <span>ODS 12 i ODS 13</span>
             <h1>EcoLife</h1>
             <p>Registra els teus hàbits sostenibles i ajuda el planeta!</p>
         </header>

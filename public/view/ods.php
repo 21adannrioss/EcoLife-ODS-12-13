@@ -12,7 +12,6 @@
         <header class="header">
             <?php include_once __DIR__ . '/../../includes/nav.php' ?>
 
-            <span class="etiqueta-ra">RA1 · Identificació ASG i marcs internacionals</span>
             <h1>ODS 12 i ODS 13</h1>
             <p>Els Objectius de Desenvolupament Sostenible que guien EcoLife</p>
         </header>
