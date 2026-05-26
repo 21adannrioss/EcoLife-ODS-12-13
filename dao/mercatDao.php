@@ -30,6 +30,16 @@ function crearArticle($db, $titol, $tipus, $descripcio, $contacte) {
     return $db->lastInsertRowID();
 }
 
+// Actualitza un article pel seu id
+function actualitzarArticle($id, $titol, $tipus, $descripcio, $contacte) {
+    $stmt = $this->db->prepare('UPDATE articles SET titol = ?, tipus = ?, descripcio = ?, contacte = ? WHERE id = ?');
+    $stmt->execute([$titol, $tipus, $descripcio, $contacte, $id]);
+    
+    $stmt2 = $this->db->prepare('SELECT * FROM articles WHERE id = ?');
+    $stmt2->execute([$id]);
+    return $stmt2->fetch(PDO::FETCH_ASSOC);
+}
+
 // Elimina un article pel seu ID
 function eliminarArticle($db, $id) {
     $stmt = $db->prepare('DELETE FROM articles WHERE id = :id');

@@ -38,6 +38,20 @@ switch($_SERVER['REQUEST_METHOD']) {
         echo json_encode($article);
         break;
 
+    case 'PUT':
+        $id = isset($_GET['id'])? intval($_GET['id']): 0;
+        $dades = json_decode(file_get_contents('php://input'), true);
+
+        if(!$id || empty($dades['titol']) || empty($dades['tipus']) || empty($dades['descripcio']) || empty($dades['contacte'])) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Dades incompletes']);
+            exit;
+        }
+
+        $article = $dao->actualitzarArticle($id, $dades['titol'], $dades['tipus'], $dades['descripcio'], $dades['contacte']);
+        echo json_encode($article);
+        break;
+
     case 'DELETE':
         // Cal estar autenticat per eliminar
         $usuari = validarToken();
