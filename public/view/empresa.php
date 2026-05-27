@@ -1,7 +1,7 @@
 <?php include_once __DIR__ . '/../../includes/meta.php'; ?>
     <title>Empresa - EcoLife</title>
-    <link rel="stylesheet" href="/public/css/styles.css">
-    <script src="/js/modeFosc.js" defer></script>
+    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/styles.css">
+    <script src="<?= BASE_URL ?>/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
@@ -16,7 +16,7 @@
             <!-- Presentació de l'empresa -->
             <section class="seccio">
                 <article class="targeta capçalera-empresa">
-                    <img class="img-empresa" src="/includes/img/AppleLogo.jpg" alt="Apple">
+                    <img class="img-empresa" src="<?= BASE_URL ?>/includes/img/AppleLogo.jpg" alt="Apple">
                     <div>
                         <h2>Apple Inc.</h2>
                         <p class="subtitol-empresa">Empresa tecnològica · Cupertino, Califòrnia · Informe de sostenibilitat 2023</p>

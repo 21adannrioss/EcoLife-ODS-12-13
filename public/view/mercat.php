@@ -4,9 +4,9 @@ $usuari = validarToken();
 ?>
 <?php include_once __DIR__ . '/../../includes/meta.php'; ?>
     <title>Mercat d'Intercanvi - EcoLife</title>
-    <link rel="stylesheet" href="/public/css/styles.css">
-    <script src="/js/mercat.js" defer></script>
-    <script src="/js/modeFosc.js" defer></script>
+    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/styles.css">
+    <script src="<?= BASE_URL ?>/js/mercat.js" defer></script>
+    <script src="<?= BASE_URL ?>/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
@@ -67,7 +67,7 @@ $usuari = validarToken();
                 </article>
                 <?php else: ?>
                 <aside class="bloc-info">
-                    <a href="/public/view/login.php">Inicia sessió</a> per publicar articles al mercat.
+                    <a href="<?= BASE_URL ?>/public/view/login.php">Inicia sessió</a> per publicar articles al mercat.
                 </aside>
                 <?php endif; ?>
             </section>
@@ -116,7 +116,5 @@ $usuari = validarToken();
         </div>
         <?php include_once __DIR__ . '/../../includes/footer.html'; ?>  
     </main>
-
-    
 </body>
 </html>

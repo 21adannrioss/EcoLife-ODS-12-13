@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . "/../includes/config.php";
 include_once __DIR__ . ("/../includes/db_connect.php");
 
 $nom = $_POST["usu_nom"]?? "";
@@ -22,13 +23,13 @@ if($nom && $contrasenya) {
         $token = "$header.$payload.$signatura";
 
         setcookie("token", $token, time() + 3600, "/");
-        header("Location: /public/view/index.php");
+        header("Location: " . BASE_URL . "/public/view/index.php");
         exit();
     } else{
-        header("Location: /public/view/login.php?error=1");
+        header("Location: " . BASE_URL . "/public/view/login.php?error=1");
         exit();
     }
 } else{
-    header("Location: /public/view/login.php?error=2");
+    header("Location: " . BASE_URL . "/public/view/login.php?error=2");
     exit();
 }

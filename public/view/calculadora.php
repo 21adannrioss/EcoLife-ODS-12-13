@@ -1,8 +1,8 @@
 <?php include_once __DIR__ . '/../../includes/meta.php'; ?>
     <title>Calculadora CO₂ - EcoLife</title>
-    <link rel="stylesheet" href="/public/css/styles.css">
-    <script src="/js/calculadora.js" defer></script>
-    <script src="/js/modeFosc.js" defer></script>
+    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/styles.css">
+    <script src="<?= BASE_URL ?>/js/calculadora.js" defer></script>
+    <script src="<?= BASE_URL ?>/js/modeFosc.js" defer></script>
 </head>
 <body>
     <main>
