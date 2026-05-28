@@ -121,7 +121,7 @@
                         </ul>
                     </article>
                     <article class="targeta">
-                        <h4 class="titol-taronja">⚠ Punts de millora</h4>
+                        <h4 class="titol-taronja">Punts de millora</h4>
                         <ul class="llista-neta">
                             <li>Els dispositius Apple son difícils de reparar per l'usuari</li>
                             <li>El model de negoci afavoreix renovar el mòbil cada 2 anys</li>
