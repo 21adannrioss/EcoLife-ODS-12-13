@@ -650,8 +650,15 @@ footer {
     line-height: 2;
 }
 
-.icona-gran {
-    font-size: 30px;
+.icona-img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 0 auto;
+    padding: 12px;
+    border-radius: 40%;
+    transition: all 0.3s ease;
 }
 
 .icona-xl {

@@ -28,13 +28,8 @@ const mostrarArticles = () => {
 
     // Articles un a un
     for(let i = 0; i < articles.length; i++) {
-        let emoji = ''
-        if(articles[i].tipus === 'intercanvi') emoji = '🔄'
-        if(articles[i].tipus === 'regal') emoji = '🎁'
-        if(articles[i].tipus === 'préstec') emoji = '🤝'
-
         html += '<div class="targeta" id="article-' + articles[i].id + '">'
-        html += '<p style="font-size:13px; color:#2e7d32; font-weight:bold;">' + emoji + ' ' + articles[i].tipus.toUpperCase() + '</p>'
+        html += '<p style="font-size:13px; color:#2e7d32; font-weight:bold;">' + articles[i].tipus.toUpperCase() + '</p>'
         html += '<h3 style="margin:6px 0;">' + articles[i].titol + '</h3>'
         html += '<p style="font-size:14px; color:#555; margin-bottom:8px;">' + articles[i].descripcio + '</p>'
         html += '<p style="font-size:13px; color:#777;">' + articles[i].contacte + '</p>'

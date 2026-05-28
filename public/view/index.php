@@ -31,14 +31,14 @@
                 <div class="graella-2">
                     <a href="<?= BASE_URL ?>/public/view/habits.php" class="enllac-net">
                         <article class="targeta">
-                            <h3>Gestió de Hàbits</h3>
-                            <p class="text-secundari">Afegeix, edita i elimina els teus hàbits sostenibles. CRUD</p>
+                            <h3>Gestió d'Hàbits</h3>
+                            <p class="text-secundari">Afegeix, edita i elimina els teus hàbits sostenibles.</p>
                         </article>
                     </a>
                     <a href="<?= BASE_URL ?>/public/view/mercat.php" class="enllac-net">
                         <article class="targeta">
                             <h3>Mercat d'Intercanvi</h3>
-                            <p class="text-secundari">Intercanvia i regala objectes que ja no necessites. Economia circular</p>
+                            <p class="text-secundari">Intercanvia i regala objectes que ja no necessites.</p>
                         </article>
                     </a>
                     <a href="<?= BASE_URL ?>/public/view/calculadora.php" class="enllac-net">
@@ -50,7 +50,7 @@
                     <a href="<?= BASE_URL ?>/public/view/estadistiques.php" class="enllac-net">
                         <article class="targeta">
                             <h3>Estadístiques</h3>
-                            <p class="text-secundari">Veu l'impacte de tots els hàbits registrats carregats des de l'API.</p>
+                            <p class="text-secundari">Veu l'impacte de tots els hàbits registrats.</p>
                         </article>
                     </a>
                 </div>

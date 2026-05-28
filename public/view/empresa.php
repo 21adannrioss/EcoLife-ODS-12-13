@@ -18,7 +18,7 @@
                 <article class="targeta capçalera-empresa">
                     <img class="img-empresa" src="<?= BASE_URL ?>/includes/img/AppleLogo.jpg" alt="Apple">
                     <div>
-                        <h2>Apple Inc.</h2>
+                        <h2>Apple</h2>
                         <p class="subtitol-empresa">Empresa tecnològica · Cupertino, Califòrnia · Informe de sostenibilitat 2023</p>
                     </div>
                 </article>
@@ -63,7 +63,7 @@
 
             <!-- Grups d'interès -->
             <section class="seccio">
-                <h2>Grups d'interès (Stakeholders)</h2>
+                <h2>Grups d'interès</h2>
                 <div class="graella-3">
                     <article class="targeta">
                         <h4 class="titol-targeta">Treballadors</h4>

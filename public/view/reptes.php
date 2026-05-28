@@ -18,7 +18,7 @@
                 <h2>Problemes que hem identificat</h2>
                 <div class="graella-2">
                     <article class="targeta">
-                        <p class="icona-gran">🏭</p>
+                        <img src="<?= BASE_URL ?>/includes/img/fabrica.jpg" alt="Fàbrica contaminant" class="icona-img">
                         <h3>Excés d'emissions de gasos</h3>
                         <p class="text-secundari-espaiat">
                             La majoria de persones no saben quines activitats quotidianes generen més emissions de gasos d'efecte hivernacle.
@@ -28,7 +28,7 @@
                     </article>
 
                     <article class="targeta">
-                        <p class="icona-gran">🗑️</p>
+                        <img src="<?= BASE_URL ?>/includes/img/basura.jpg" alt="Escombraries" class="icona-img">
                         <h3>Consum lineal: comprar i llençar</h3>
                         <p class="text-secundari-espaiat">
                             El model de consum actual és "prendre, fabricar i llençar". Això genera 2.000 milions de tones de residus sòlids per any.
@@ -40,7 +40,7 @@
                     </article>
 
                     <article class="targeta">
-                        <p class="icona-gran">🌊</p>
+                        <img src="<?= BASE_URL ?>/includes/img/plastic.jpg" alt="Plàstic al mar" class="icona-img">
                         <h3>Excés de plàstic d'un sol ús</h3>
                         <p class="text-secundari-espaiat">
                             Més de 8 milions de tones de plàstic acaben als oceans cada any.
@@ -52,7 +52,7 @@
                     </article>
 
                     <article class="targeta">
-                        <p class="icona-gran">🍽️</p>
+                        <img src="<?= BASE_URL ?>/includes/img/comida.jpg" alt="Menjar tirat" class="icona-img">
                         <h3>Malbaratament d'aliments</h3>
                         <p class="text-secundari-espaiat">
                             931 milions de tones d'aliments es llencen cada any mentre milions de persones passen gana.

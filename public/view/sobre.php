@@ -32,16 +32,18 @@
                             <li>CSS3</li>
                             <li>JavaScript (vanilla)</li>
                             <li>fetch() amb async/await</li>
-                            <li>Gestió del DOM amb events</li>
+                            <li>Gestió del DOM amb events i listeners</li>
                         </ul>
                     </article>
                     <article class="targeta">
                         <h4 class="titol-targeta">Backend (servidor)</h4>
                         <ul class="llista-neta">
-                            <li>Node.js</li>
-                            <li>Express.js</li>
-                            <li>Persistència amb SQLite (better-sqlite3)</li>
+                            <li>PHP 8 (autenticació, mercat, vistes)</li>
+                            <li>Node.js + Express.js (API hàbits)</li>
+                            <li>SQLite compartida (better-sqlite3 / SQLite3)</li>
                             <li>API REST (GET, POST, PUT, DELETE)</li>
+                            <li>Autenticació amb JWT (cookies)</li>
+                            <li>Patró DAO per accés a dades</li>
                             <li>nodemon per al desenvolupament</li>
                         </ul>
                     </article>
@@ -60,8 +62,9 @@
                             <li>fetch() amb async/await</li>
                             <li>Validació de formularis al client</li>
                             <li>Modificació del DOM amb events i listeners</li>
-                            <li>API REST amb Node.js i Express</li>
-                            <li>Persistència de dades amb db.json</li>
+                            <li>API REST amb Node.js i Express (hàbits)</li>
+                            <li>API REST amb PHP (mercat)</li>
+                            <li>Persistència de dades amb SQLite</li>
                         </ul>
                     </div>
                     <div>
@@ -82,13 +85,13 @@
             <section class="seccio">
                 <h2>Com executar el projecte</h2>
                 <article class="targeta targeta-codi">
-                    <p><span class="codi-comentari"># Pas 1: Instal·la les dependències</span></p>
+                    <p><span class="codi-comentari"># Pas 1: Instal·la les dependències de Node.js</span></p>
                     <p>npm install</p>
                     <br />
-                    <p><span class="codi-comentari"># Pas 2: Terminal 1 - Arrenca el servidor amb nodemon</span></p>
+                    <p><span class="codi-comentari"># Pas 2: Terminal 1 - Arrenca el servidor Node.js (API hàbits, port 3000)</span></p>
                     <p>npm run dev</p>
                     <br />
-                    <p><span class="codi-comentari"># Pas 3: Terminal 2 - Arrenca el servidor amb php</span></p>
+                    <p><span class="codi-comentari"># Pas 3: Terminal 2 - Arrenca el servidor PHP (vistes i API mercat, port 8000)</span></p>
                     <p>php -S localhost:8000</p>
                     <br />
                     <p><span class="codi-comentari"># Pas 4: Obre el navegador a</span></p>
@@ -100,9 +103,9 @@
             <section class="seccio">
                 <h2>El que he après</h2>
                 <aside class="bloc-info">
-                    <strong>Tècnicament:</strong> Fer servir fetch() i async/await ha sigut la part més important.
-                    Entendre que JavaScript pot fer coses "mentre espera" (comunicació asíncrona) sense bloquejar la
-                    pàgina és fonamental per a qualsevol web moderna.
+                    <strong>Tècnicament:</strong> Combinar dos servidors (PHP i Node.js) que comparteixen la mateixa
+                    base de dades SQLite ha sigut el repte principal. Entendre com gestionar CORS, autenticació
+                    amb JWT i el patró DAO m'ha donat una visió real de com funcionen les aplicacions web en producció.
                 </aside>
                 <aside class="bloc-info">
                     <strong>Com a persona:</strong> Crear una aplicació sobre sostenibilitat m'ha fet pensar més

@@ -111,7 +111,7 @@ document.getElementById('formulari-calc').addEventListener('submit', function (e
 
     // Nota informativa sobre l'objectiu ODS 13
     html += '<div class="bloc-info" style="margin-top:14px; font-size:13px;">'
-    html += "<strong>Objectiu global (ODS 13):</strong> 2,3 t de CO₂ per persona i any per limitar l'escalfament a 1,5°C."
+    html += "<strong>Objectiu global:</strong> 2,3 t de CO₂ per persona i any per limitar l'escalfament a 1,5°C."
     html += "</div>"
 
     html += "</div>"

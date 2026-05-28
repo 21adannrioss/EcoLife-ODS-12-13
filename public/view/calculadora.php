@@ -16,7 +16,7 @@
         <div class="contingut-principal">
             <aside class="bloc-info bloc-info-mb">
                 <strong>Per què és important?</strong> La majoria de persones no saben quines activitats diàries generen més CO₂.
-                Conèixer el teu impacte és el primer pas per millorar-lo. L'objectiu és estar per sota de 2,3 tones per any (ODS 13).
+                Conèixer el teu impacte és el primer pas per millorar-lo. L'objectiu és estar per sota de 2,3 tones per any.
             </aside>
 
             <div class="graella-2">
@@ -70,7 +70,7 @@
                 <!-- Resultat del càlcul -->
                 <div id="zona-resultat">
                     <article class="targeta zona-resultat-buit">
-                        <p class="emoji-resultat">🌍</p>
+                        <img src="<?= BASE_URL ?>/includes/img/planeta.png" alt="Planeta Terra" class="icona-img">
                         <p class="text-secundari">Emplena el formulari per veure el resultat.</p>
                     </article>
                 </div>

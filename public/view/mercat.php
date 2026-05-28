@@ -19,14 +19,6 @@ $usuari = validarToken();
         </header>
 
         <div class="contingut-principal">
-            <!-- Explicació de l'economia circular -->
-            <section class="seccio">
-                <aside class="bloc-info">
-                    <strong>Què és l'economia circular?</strong> En lloc de llençar les coses, les compartim, llogem, reutilitzem o reciclem.
-                    Cada article que publiques aquí és un producte que no anirà a la brossa!
-                </aside>
-            </section>
-
             <!-- Formulari per publicar un article, només per a usuaris autenticats -->
             <section class="seccio">
                 <h2>Publicar un article</h2>
