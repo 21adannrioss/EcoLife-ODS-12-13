@@ -31,13 +31,15 @@ function crearArticle($db, $titol, $tipus, $descripcio, $contacte) {
 }
 
 // Actualitza un article pel seu id
-function actualitzarArticle($id, $titol, $tipus, $descripcio, $contacte) {
-    $stmt = $this->db->prepare('UPDATE articles SET titol = ?, tipus = ?, descripcio = ?, contacte = ? WHERE id = ?');
-    $stmt->execute([$titol, $tipus, $descripcio, $contacte, $id]);
-    
-    $stmt2 = $this->db->prepare('SELECT * FROM articles WHERE id = ?');
-    $stmt2->execute([$id]);
-    return $stmt2->fetch(PDO::FETCH_ASSOC);
+function actualitzarArticle($db, $id, $titol, $tipus, $descripcio, $contacte) {
+    $stmt = $db->prepare('UPDATE articles SET titol = :titol, tipus = :tipus, descripcio = :descripcio, contacte = :contacte WHERE id = :id');
+    $stmt->bindValue(':titol', $titol, SQLITE3_TEXT);
+    $stmt->bindValue(':tipus', $tipus, SQLITE3_TEXT);
+    $stmt->bindValue(':descripcio', $descripcio, SQLITE3_TEXT);
+    $stmt->bindValue(':contacte', $contacte, SQLITE3_TEXT);
+    $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
+    $stmt->execute();
+    return getArticleById($db, $id);
 }
 
 // Elimina un article pel seu ID

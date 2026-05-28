@@ -48,7 +48,7 @@ switch($_SERVER['REQUEST_METHOD']) {
             exit;
         }
 
-        $article = $dao->actualitzarArticle($id, $dades['titol'], $dades['tipus'], $dades['descripcio'], $dades['contacte']);
+        $article = actualitzarArticle($db, $id, $dades['titol'], $dades['tipus'], $dades['descripcio'], $dades['contacte']);
         echo json_encode($article);
         break;
 
