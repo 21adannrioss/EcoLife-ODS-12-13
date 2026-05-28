@@ -5,6 +5,7 @@ $usuari = validarToken();
 <?php include_once __DIR__ . '/../../includes/meta.php'; ?>
     <title>Mercat d'Intercanvi - EcoLife</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/styles.css">
+    <script>const BASE_URL = '<?= BASE_URL ?>';</script> <!-- Exposa la url base de PHP a JavaScript -->
     <script src="<?= BASE_URL ?>/js/mercat.js" defer></script>
     <script src="<?= BASE_URL ?>/js/modeFosc.js" defer></script>
 </head>

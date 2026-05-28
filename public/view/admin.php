@@ -4,7 +4,7 @@ $usuari = validarToken();
 
 // Si no és admin, redirigeix a l'inici
 if(!$usuari || $usuari['rol'] !== 'admin') {
-    header('Location: /public/view/index.php');
+    header('Location: ' . BASE_URL . '/public/view/index.php');
     exit();
 }
 ?>
@@ -98,11 +98,13 @@ if(!$usuari || $usuari['rol'] !== 'admin') {
     </main>
 
     <script>
+        const BASE_URL = '<?= BASE_URL ?>';
+
         // Eliminar un article des del panel admin
         async function eliminarArticleAdmin(id) {
             if(!confirm('Vols eliminar aquest article?')) return
 
-            const res = await fetch('/api/mercatApi.php?id=' + id, {method: 'DELETE'})
+            const res = await fetch(BASE_URL + '/api/mercatApi.php?id=' + id, {method: 'DELETE'})
 
             if(res.ok) {
                 // Recarrega la pàgina per actualitzar la taula

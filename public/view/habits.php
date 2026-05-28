@@ -4,7 +4,7 @@ $usuari = validarToken();
 
 // Cal estar autenticat
 if(!$usuari) {
-    header('Location: /public/view/login.php');
+    header('Location: ' . BASE_URL . '/public/view/login.php');
     exit();
 }
 ?>

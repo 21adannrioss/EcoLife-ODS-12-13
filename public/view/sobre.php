@@ -83,7 +83,7 @@
                 <h2>Com executar el projecte</h2>
                 <article class="targeta targeta-codi">
                     <p><span class="codi-comentari"># Pas 1: Instal·la les dependències</span></p>
-                    <p>npm install better-sqlite3</p>
+                    <p>npm install</p>
                     <br />
                     <p><span class="codi-comentari"># Pas 2: Terminal 1 - Arrenca el servidor amb nodemon</span></p>
                     <p>npm run dev</p>
@@ -100,11 +100,9 @@
             <section class="seccio">
                 <h2>El que he après</h2>
                 <aside class="bloc-info">
-                    <strong>Tècnicament:</strong> Aprendre a fer servir fetch() i async/await ha estat la part més
-                    important.
+                    <strong>Tècnicament:</strong> Fer servir fetch() i async/await ha sigut la part més important.
                     Entendre que JavaScript pot fer coses "mentre espera" (comunicació asíncrona) sense bloquejar la
-                    pàgina
-                    és fonamental per a qualsevol web moderna.
+                    pàgina és fonamental per a qualsevol web moderna.
                 </aside>
                 <aside class="bloc-info">
                     <strong>Com a persona:</strong> Crear una aplicació sobre sostenibilitat m'ha fet pensar més

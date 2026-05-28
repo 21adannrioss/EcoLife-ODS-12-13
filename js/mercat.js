@@ -1,4 +1,4 @@
-const urlApi = '/api/mercatApi.php'
+const urlApi = BASE_URL + '/api/mercatApi.php'
 let articles = []
 let idArticleActual = null
 
