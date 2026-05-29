@@ -1,14 +1,14 @@
 <?php
+include_once __DIR__ . '/../../includes/config.php';
 include_once __DIR__ . '/../../includes/auth.php';
 $usuari = validarToken();
-
-include_once __DIR__ . '/../../includes/meta.php';
 
 // Cal estar autenticat
 if(!$usuari) {
     header('Location: ' . BASE_URL . '/public/view/login.php');
     exit();
 }
+include_once __DIR__ . '/../../includes/meta.php';
 ?>
     <title>Hàbits - EcoLife</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/styles.css">
