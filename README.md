@@ -10,13 +10,12 @@
 2. [Tecnologies utilitzades](#tecnologies-utilitzades)
 3. [Estructura del projecte](#estructura-del-projecte)
 4. [Base de dades](#base-de-dades)
-5. [API REST - Node.js](#api-rest--nodejs)
-6. [API REST - PHP](#api-rest--php)
+5. [API REST - Node.js](#api-rest---nodejs)
+6. [API REST - PHP](#api-rest---php)
 7. [Autenticació JWT](#autenticació-jwt)
-8. [Control d'accés per rol](#control-daccés-per-rol)
-9. [Funcionalitats](#funcionalitats)
-10. [Com iniciar el projecte](#com-iniciar-el-projecte)
-11. [ODS treballats](#ods-treballats)
+8. [Funcionalitats](#funcionalitats)
+9. [Com iniciar el projecte](#com-iniciar-el-projecte)
+10. [ODS treballats](#ods-treballats)
 
 ---
 
